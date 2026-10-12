@@ -1,15 +1,7 @@
 """
-run.py — Điểm điều phối duy nhất cho toàn bộ hệ thống NUS CS Curriculum Analytics.
-
-Chạy toàn bộ pipeline cốt lõi 3 giai đoạn:
-  1. Thu thập và làm sạch dữ liệu (src.loader)
-  2. Tính toán phân tích định lượng & mô hình ML (src.analytics)
-  3. Biên dịch cổng thông tin web tĩnh chuẩn bị triển khai (src.builder)
-
 Tùy chọn:
   python run.py             : Chạy toàn bộ pipeline chuẩn 3 giai đoạn (mặc định)
   python run.py --skip-data : Bỏ qua thu thập lại API nếu đã có cleaned_nus_cs.csv
-  python run.py --serve     : Khởi chạy HTTP server cục bộ xem trang web docs/
   python run.py --export-pdf: (Tùy chọn) Xuất báo cáo PDF nếu có export_pdf.py
   python run.py --export-docx: (Tùy chọn) Xuất báo cáo Word nếu có export_docx.py
 """
@@ -22,7 +14,6 @@ import sys
 import webbrowser
 from pathlib import Path
 
-# Cấu hình UTF-8 cho stdout/stderr trên Windows
 if hasattr(sys.stdout, "reconfigure"):
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -30,13 +21,11 @@ if hasattr(sys.stdout, "reconfigure"):
     except Exception:
         pass
 
-# Đảm bảo import được module từ thư mục src
 ROOT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT_DIR / "src"))
 
 
 def ensure_requirements(auto_install: bool = True):
-    """Kiểm tra và tự động cài đặt các thư viện cần thiết trước khi khởi chạy pipeline."""
     import importlib.util
 
     required_modules = {
@@ -93,7 +82,6 @@ def ensure_requirements(auto_install: bool = True):
         sys.exit(1)
 
 
-# 1. Tự động kiểm tra và cài đặt thư viện phụ thuộc trước khi import
 ensure_requirements(auto_install=True)
 
 from loader import clean_and_export_all
@@ -124,53 +112,6 @@ def run_builder_pipeline():
     print(f"[XONG] Trang web tĩnh đã sẵn sàng tại {out_html}")
 
 
-def serve_docs(port: int = 8000):
-    docs_dir = ROOT_DIR / "docs"
-    print(f"\n[HTTP SERVER] Đang phục vụ thư mục docs/ tại http://localhost:{port}")
-    print("Nhấn Ctrl + C để dừng máy chủ.\n")
-    
-    class Handler(http.server.SimpleHTTPRequestHandler):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, directory=str(docs_dir), **kwargs)
-
-    webbrowser.open(f"http://localhost:{port}/index.html")
-    with socketserver.TCPServer(("", port), Handler) as httpd:
-        try:
-            httpd.serve_forever()
-        except KeyboardInterrupt:
-            print("\n[HTTP SERVER] Đã dừng máy chủ.")
-
-
-def export_storytelling_pdf():
-    pdf_script = ROOT_DIR / "export_pdf.py"
-    if not pdf_script.exists():
-        print("\n[THÔNG BÁO] Không tìm thấy export_pdf.py, bỏ qua xuất PDF.")
-        return
-    try:
-        import export_pdf
-        print("\n=======================================================")
-        print(" [Phụ lục] Xuất báo cáo kể chuyện dữ liệu ra PDF (1 trang A4)")
-        print("=======================================================")
-        export_pdf.build_pdf()
-    except Exception as e:
-        print(f"[CẢNH BÁO] Không thể xuất PDF: {e}")
-
-
-def export_storytelling_docx():
-    docx_script = ROOT_DIR / "export_docx.py"
-    if not docx_script.exists():
-        print("\n[THÔNG BÁO] Không tìm thấy export_docx.py, bỏ qua xuất Word.")
-        return
-    try:
-        import export_docx
-        print("\n=======================================================")
-        print(" [Phụ lục] Xuất báo cáo kể chuyện dữ liệu ra Word (.docx)")
-        print("=======================================================")
-        export_docx.build_docx()
-    except Exception as e:
-        print(f"[CẢNH BÁO] Không thể xuất Word: {e}")
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="Điểm điều phối duy nhất cho toàn bộ hệ thống NUS CS Curriculum Analytics"
@@ -186,21 +127,7 @@ def main():
         default=8000,
         help="Cổng kết nối khi chạy HTTP server (mặc định: 8000)"
     )
-    parser.add_argument(
-        "--skip-data",
-        action="store_true",
-        help="Bỏ qua bước làm sạch dữ liệu nếu cleaned_nus_cs.csv đã có sẵn"
-    )
-    parser.add_argument(
-        "--export-pdf",
-        action="store_true",
-        help="Xuất báo cáo kể chuyện dữ liệu (Storytelling with Data) ra tệp PDF A4"
-    )
-    parser.add_argument(
-        "--export-docx",
-        action="store_true",
-        help="Xuất báo cáo kể chuyện dữ liệu (Storytelling with Data) ra tệp Word (.docx)"
-    )
+
     args = parser.parse_args()
 
     if not args.skip_data:

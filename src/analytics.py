@@ -1,7 +1,6 @@
 """
-src/analytics.py — Tính toán toàn bộ chỉ số phân tích định lượng & mô hình ML cho hệ thống NUS CS Analytics.
+Tính toán toàn bộ chỉ số phân tích định lượng & mô hình ML cho hệ thống NUS CS Analytics.
 Xuất số liệu tiền tính toán sang data/web_data.json và đồng bộ docs/data/web_data.json.
-Bao quát toàn diện các câu hỏi nghiên cứu từ Q1.1 đến Q5.3.
 """
 
 import ast
@@ -20,7 +19,6 @@ from sklearn.metrics import silhouette_score
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-# Known title mappings for external prerequisites (Science, Engineering, Math, Stats)
 EXTERNAL_TITLES = {
     "ST2131": "Probability",
     "ST2334": "Probability and Statistics",
@@ -63,7 +61,6 @@ STOPWORDS_EXTENDED = [
 
 
 def _parse_prereq_list(p_raw) -> list[str]:
-    """Safely parse prerequisite code representations from strings or lists."""
     if pd.isna(p_raw) or not p_raw:
         return []
     if isinstance(p_raw, list):
@@ -94,7 +91,7 @@ def load_datasets():
     else:
         df_unique = df.sort_values("academicYear").drop_duplicates(subset=["moduleCode"], keep="last").copy()
 
-    # Nạp xếp hạng phòng học sạch từ venues_ranking.json (hoặc bóc tách dự phòng nếu cần)
+    # Nạp xếp hạng phòng học sạch từ venues_ranking.json
     venues_ranking = []
     if venues_path.exists():
         venues_ranking = json.loads(venues_path.read_text(encoding="utf-8"))

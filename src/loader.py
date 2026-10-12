@@ -1,5 +1,5 @@
 """
-src/loader.py — NUS CS/AI Curriculum Analytics
+NUS CS/AI Curriculum Analytics
 Khối 1: Thu thập và lưu trữ bộ nhớ tạm dữ liệu thô NUSMods API v2 (5 niên khóa)
 Khối 2: Tiền xử lý, bóc tách cây logic AST, bù khuyết trung vị phân tầng, kỹ thuật đặc trưng
 Khối 3: Khử trùng lặp và xuất bản các tập dữ liệu sạch chuẩn 1NF (1.400 môn & 348 môn duy nhất)
@@ -14,7 +14,6 @@ import numpy as np
 import pandas as pd
 import requests
 
-# Cấu hình UTF-8 cho stdout/stderr trên Windows
 if hasattr(sys.stdout, "reconfigure"):
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -79,7 +78,6 @@ def _fetch_year(year: str) -> list[dict]:
 
 
 def load_or_fetch(cache: Path = CACHE_PATH, years: list[str] = ACADEMIC_YEARS) -> dict[str, list[dict]]:
-    """Tải dữ liệu thô từ bộ nhớ tạm local, hoặc thu thập mới từ NUSMods API nếu chưa có."""
     if cache.exists():
         print(f"[Bộ nhớ tạm] Nạp dữ liệu thô có sẵn từ {cache}")
         return json.loads(cache.read_text(encoding="utf-8"))
@@ -242,19 +240,11 @@ def build_dataframe(raw_data: dict[str, list[dict]]) -> pd.DataFrame:
 # ---------------------------------------------------------------------------
 
 def deduplicate_latest_modules(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Lọc các học phần duy nhất (348 môn) theo phiên bản niên khóa cập nhật mới nhất.
-    Sắp xếp thứ tự theo mã môn học nhằm phục vụ phân tích mạng DAG và mô hình học máy.
-    """
     df_unique = df.sort_values("academicYear").drop_duplicates(subset=["moduleCode"], keep="last").copy()
     return df_unique.sort_values("moduleCode").reset_index(drop=True)
 
 
 def extract_venues_ranking(raw_data: dict[str, list[dict]]) -> list[dict]:
-    """
-    Bóc tách bảng xếp hạng tần suất các giảng đường và phòng học tổ chức môn học.
-    Được trích xuất riêng biệt từ semesterData của tệp thô, không đưa dữ liệu lồng nhau vào bảng CSV.
-    """
     venue_counter: dict[str, int] = {}
     for yr, mods in raw_data.items():
         for m in mods:
@@ -281,12 +271,6 @@ def clean_and_export_all(
     raw_data: dict[str, list[dict]] | None = None,
     data_dir: Path | str = "data"
 ) -> tuple[pd.DataFrame, pd.DataFrame, list[dict]]:
-    """
-    Quy trình điều phối làm sạch toàn diện và xuất bản các tập dữ liệu sạch:
-    1. cleaned_nus_cs.csv: 1.400 lượt môn học phẳng 26 cột (~420 KB)
-    2. unique_nus_cs.csv: 348 môn học duy nhất mới nhất (~110 KB)
-    3. venues_ranking.json: Bảng xếp hạng phòng học sạch
-    """
     out_dir = Path(data_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 

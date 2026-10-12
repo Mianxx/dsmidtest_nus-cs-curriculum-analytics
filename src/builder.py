@@ -1,18 +1,16 @@
 """
-src/builder.py — Trình biên dịch cổng thông tin web tĩnh Hallmark Workbench.
+Trình biên dịch cổng thông tin web tĩnh Hallmark Workbench.
 Nạp dữ liệu phân tích từ web_data.json, sinh bảng động và ghép vào src/templates/index.html.
-Tách biệt hoàn toàn tầng logic (Python) và tầng giao diện/biểu đồ (HTML, CSS, JS).
 """
 
 import json
 from pathlib import Path
 
-# Thư mục gốc dự án
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 
 def generate_html(output_file: Path | None = None) -> Path:
-    # 1. Nạp dữ liệu web_data.json
+    # Nạp dữ liệu web_data.json
     data_path = ROOT_DIR / "data" / "web_data.json"
     if not data_path.exists():
         data_path = ROOT_DIR / "docs" / "data" / "web_data.json"
@@ -29,7 +27,7 @@ def generate_html(output_file: Path | None = None) -> Path:
     q4 = data["q4_stats"]
     q5 = data["q5_ml"]
 
-    # 2. Sinh các khối bảng động (Pre-rendered Table Rows)
+    # Sinh các khối bảng động
     # Phân bố cấp độ Level 1 - 6
     lvl_rows = "".join(
         f"<tr class='work-index-row'><td><span class='badge-pill badge-neutral font-mono'>0{r['level']}/ Level {r['level']}</span></td>"
@@ -47,7 +45,7 @@ def generate_html(output_file: Path | None = None) -> Path:
         for r in q1["credit_distribution"]
     )
 
-    # Môn học cửa ngõ (Bottlenecks)
+    # Môn học cửa ngõ
     bottleneck_rows = "".join(
         f"<tr><td><code class='module-code'>{b['code']}</code></td>"
         f"<td class='font-medium'>{b['title']}</td>"
@@ -95,13 +93,13 @@ def generate_html(output_file: Path | None = None) -> Path:
         for t in q4["level_transitions"]
     )
 
-    # 3. Nạp khung sườn HTML template
+    # Nạp khung sườn HTML template
     template_path = ROOT_DIR / "src" / "templates" / "index.html"
     if not template_path.exists():
         raise FileNotFoundError(f"Template not found at {template_path}")
     html_template = template_path.read_text(encoding="utf-8")
 
-    # 4. Thay thế các placeholder
+    # Thay thế các placeholder
     replacements = {
         "{{total_modules}}": f"{kpis['total_modules']:,}",
         "{{unique_modules}}": str(kpis["unique_modules"]),
@@ -122,7 +120,7 @@ def generate_html(output_file: Path | None = None) -> Path:
     for placeholder, val in replacements.items():
         html_content = html_content.replace(placeholder, val)
 
-    # 5. Xuất bản ra docs/index.html
+    # Xuất bản ra docs/index.html
     out_path = output_file or (ROOT_DIR / "docs" / "index.html")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html_content, encoding="utf-8")

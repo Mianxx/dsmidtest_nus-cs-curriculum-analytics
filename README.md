@@ -21,9 +21,6 @@ python run.py
 # Chạy nhanh khi đã có dữ liệu sạch (Bỏ qua bước thu thập lại từ API)
 python run.py --skip-data
 
-# Khởi chạy máy chủ web cục bộ xem trang web docs/
-python run.py --serve
-
 # Có thể trực tiếp mở index.html sau khi chạy code.
 ```
 
