@@ -2,16 +2,11 @@
 Tùy chọn:
   python run.py             : Chạy toàn bộ pipeline chuẩn 3 giai đoạn (mặc định)
   python run.py --skip-data : Bỏ qua thu thập lại API nếu đã có cleaned_nus_cs.csv
-  python run.py --export-pdf: (Tùy chọn) Xuất báo cáo PDF nếu có export_pdf.py
-  python run.py --export-docx: (Tùy chọn) Xuất báo cáo Word nếu có export_docx.py
 """
 
 import argparse
-import http.server
-import socketserver
 import subprocess
 import sys
-import webbrowser
 from pathlib import Path
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -117,15 +112,9 @@ def main():
         description="Điểm điều phối duy nhất cho toàn bộ hệ thống NUS CS Curriculum Analytics"
     )
     parser.add_argument(
-        "--serve", "-s",
+        "--skip-data",
         action="store_true",
-        help="Khởi chạy HTTP server cục bộ mở docs/index.html trên trình duyệt"
-    )
-    parser.add_argument(
-        "--port",
-        type=int,
-        default=8000,
-        help="Cổng kết nối khi chạy HTTP server (mặc định: 8000)"
+        help="Bỏ qua thu thập và làm sạch lại dữ liệu nếu đã có sẵn data/cleaned_nus_cs.csv"
     )
 
     args = parser.parse_args()
@@ -138,17 +127,9 @@ def main():
     run_analytics_pipeline()
     run_builder_pipeline()
 
-    if args.export_pdf:
-        export_storytelling_pdf()
-    if args.export_docx:
-        export_storytelling_docx()
-
     print("\n=======================================================")
     print(" [HOÀN THÀNH] Toàn bộ pipeline đã thực thi thành công!")
     print("=======================================================")
-
-    if args.serve:
-        serve_docs(args.port)
 
 
 if __name__ == "__main__":

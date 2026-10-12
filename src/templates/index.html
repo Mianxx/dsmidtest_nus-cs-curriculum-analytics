@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>NUS CS &amp; AI Curriculum Analytics | Báo cáo phân tích đào tạo Đại học Quốc gia Singapore (2022 - 2027)</title>
+ <meta name="description" content="Cổng báo cáo phân tích định lượng chương trình đào tạo Khoa học Máy tính và Trí tuệ Nhân tạo tại Đại học Quốc gia Singapore (2022-2027) — Bùi Minh Anh - B25DCTN003, Khoa Trí tuệ nhân tạo.">
+ <meta name="author" content="Bùi Minh Anh - B25DCTN003">
+
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <!-- Kott Studio Cinematic Grain Overlay -->
+ <div class="grain-overlay" aria-hidden="true"></div>
+
+ <!-- Kott Studio Floating Back-to-Top Pill -->
+ <button class="scroll-top-btn" aria-label="Cuộn lên đầu trang"><span>Lên đầu trang</span> &uarr;</button>
+
+ <!-- Floating Universal Chart Tooltip -->
+ <div id="chart-tooltip" class="chart-tooltip"></div>
+
+ <!-- Unified Kott Studio Minimalist Architectural Header (2-Level Hierarchy) -->
+ <header class="site-header">
+ <div class="header-inner">
+ <!-- Left: Brand + 1-Level Crumb (nus® / [tab]) -->
+ <div class="header-brand-crumb">
+ <a href="#storytelling" class="brand-link" onclick="window.switchTab('storytelling')" aria-label="NUS CS Curriculum Analytics — home">
+ <span class="brand-name font-display">nus<sup class="brand-reg">®</sup></span>
+ </a>
+ <span class="crumb-sep font-mono">/</span>
+ <span id="header-active-tab" class="crumb-active font-mono">story</span>
+ </div>
+
+ <!-- Right: Primary Level-1 Monospace Tabs (/story, /curriculum,...) + Controls -->
+ <div class="header-nav-group">
+ <nav class="nav-tabs font-mono" aria-label="Điều hướng khối phân tích">
+ <button class="tab-slash active" data-tab="storytelling"><span>/story</span></button>
+ <button class="tab-slash" data-tab="graph"><span>/graph</span></button>
+ <button class="tab-slash" data-tab="report"><span>/report</span></button>
+ <button class="tab-slash" data-tab="curriculum"><span>/curriculum</span></button>
+ <button class="tab-slash" data-tab="workload"><span>/workload</span></button>
+ <button class="tab-slash" data-tab="prereq"><span>/prereq</span></button>
+ <button class="tab-slash" data-tab="stats"><span>/stats</span></button>
+ <button class="tab-slash" data-tab="ml"><span>/ml</span></button>
+ <button class="tab-slash" data-tab="explorer"><span>/explorer</span></button>
+ </nav>
+ <button id="theme-toggle" class="btn-theme-minimal font-mono" title="Chuyển đổi giao diện [Dark / Light]">
+ <span id="theme-icon">&#9681;</span>
+ </button>
+ </div>
+ </div>
+ </header>
+
+ <!-- Main Analytical Viewport -->
+ <main class="main-viewport">
+
+ <!-- ========================================================================
+ TAB 0: EXECUTIVE STORYTELLING & KOTT STUDIO HERO
+ ======================================================================== -->
+ <div id="pane-storytelling" class="tab-pane active">
+
+ <!-- Kott Studio Minimalist Statement Hero -->
+ <section class="hero-statement-section border-hairline-b reveal-card" style="margin-bottom: 16px; padding-bottom: 16px;">
+ <div class="hero-eyebrow-row font-mono" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+ <span class="eyebrow text-muted"><span class="text-accent font-bold">01</span> &mdash; BÁO CÁO TỔNG QUAN</span>
+ <span class="eyebrow text-muted font-mono">// NIÊN KHÓA 2022 &ndash; 2027</span>
+ </div>
+ <div class="hero-center-row" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 14px; flex-wrap: wrap;">
+ <div class="hero-headline-wrap" style="flex: 1; min-width: 280px;">
+ <h1 class="hero-display font-display" style="font-size: clamp(48px, 7vw, 92px); font-weight: 300; line-height: 0.95; letter-spacing: -0.04em; color: var(--color-ink); margin-bottom: 8px;">
+ <span class="text-accent font-bold">CU</span>RRICULUM
+ </h1>
+ <p class="hero-sub font-display" style="font-size: clamp(16px, 1.8vw, 22px); line-height: 1.35; color: var(--color-ink); max-width: 24em;">
+ <span>Patterns across 1,400 curriculum modules.</span>
+ <span class="hero-sub-italic italic text-accent" style="display: block; font-style: italic;">Revealed through computational data science.</span>
+ </p>
+ </div>
+ <div class="hero-isometric-symbol" aria-hidden="true" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
+ <svg class="penrose-svg" viewBox="-50 -50 100 100" style="width: 120px; height: 120px; filter: drop-shadow(0 8px 24px rgba(0, 55, 255, 0.15));" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <polygon points="0,-36 31,-18 0,0 -31,-18" fill="var(--color-accent)"/>
+ <polygon points="31,-18 31,18 0,36 0,0" fill="var(--color-hairline-strong)"/>
+ <polygon points="-31,-18 0,0 0,36 -31,18" fill="var(--color-ink)"/>
+ </svg>
+ </div>
+ </div>
+ <div class="hero-bottom-rail font-mono" style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--color-hairline); padding-top: 8px; font-size: 11px;">
+ <span class="eyebrow text-muted">COMPUTATIONAL CURRICULUM ANALYTICS &bull; NATIONAL UNIVERSITY OF SINGAPORE</span>
+ <span class="eyebrow text-muted">000 SCROLL TO INSPECT &darr;</span>
+ </div>
+ </section>
+
+ <!-- KPI Rollup Summary Cards -->
+ <section class="kpi-grid kpi-grid-4">
+ <div class="kpi-box reveal-card" style="--i: 0">
+ <div class="kpi-header">
+ <span class="kpi-tag">Quy mô phân tích</span>
+ <span class="kpi-delta font-mono">5 Niên khóa</span>
+ </div>
+ <div class="kpi-num font-mono">1,400 <span class="kpi-unit">lượt môn</span></div>
+ <div class="kpi-meta">Đại diện cho 348 môn học duy nhất trong toàn bộ khoa CS, IS &amp; DSA.</div>
+ </div>
+
+ <div class="kpi-box reveal-card" style="--i: 1">
+ <div class="kpi-header">
+ <span class="kpi-tag">Chuẩn tín chỉ</span>
+ <span class="kpi-delta font-mono">MCs Chuẩn</span>
+ </div>
+ <div class="kpi-num font-mono">4.0 <span class="kpi-unit">MCs</span></div>
+ <div class="kpi-meta">82.3% học phần được chuẩn hóa cố định ở mức 4 Modular Credits.</div>
+ </div>
+
+ <div class="kpi-box reveal-card" style="--i: 2">
+ <div class="kpi-header">
+ <span class="kpi-tag">Khối lượng trung bình</span>
+ <span class="kpi-delta font-mono">Mỗi tuần</span>
+ </div>
+ <div class="kpi-num font-mono">11.59 <span class="kpi-unit">giờ/tuần</span></div>
+ <div class="kpi-meta">Trung vị tổng khối lượng đạt 10.0 giờ/tuần theo chuẩn định mức NUS.</div>
+ </div>
+
+ <div class="kpi-box reveal-card" style="--i: 3">
+ <div class="kpi-header">
+ <span class="kpi-tag">Trọng tâm tự học</span>
+ <span class="kpi-delta font-mono">47.4% tổng giờ</span>
+ </div>
+ <div class="kpi-num font-mono">3.2 <span class="kpi-unit">giờ/tuần</span></div>
+ <div class="kpi-meta">Sinh viên dành gần một nửa tổng thời lượng hàng tuần cho chuẩn bị cá nhân.</div>
+ </div>
+ </section>
+
+ <!-- 4 Core Analytical Findings (Edward Tufte & Cole Nussbaumer Knaflic) -->
+ <section class="section-card reveal-card" style="--i: 4">
+ <div class="section-header">
+ <div class="section-eyebrow">Báo cáo tổng kết</div>
+ <h2 class="section-title">Bốn khám phá cốt lõi về chương trình đào tạo CS &amp; AI tại NUS</h2>
+ <p class="section-desc">Tổng hợp những luận điểm và quy luật định lượng quan trọng nhất rút ra từ phân tích 1,400 lượt học phần qua 5 năm học liên tiếp (2022 &ndash; 2027).</p>
+ </div>
+
+ <div class="narrative-grid">
+ <div class="narrative-card">
+ <div class="narrative-badge">Luận điểm 1 &bull; Chuẩn hóa tín chỉ</div>
+ <h3 class="narrative-title">82.3% chương trình thiết kế theo chuẩn 4 MCs</h3>
+ <p class="narrative-body">Dù ở cấp độ cơ sở (Level 1) hay chuyên sâu sau đại học (Level 6), NUS duy trì chính sách chuẩn hóa 4 Modular Credits (tương đương 10 giờ học/tuần). Các ngoại lệ chủ yếu là đồ án tốt nghiệp cử nhân (8&ndash;12 MCs) hoặc chuyên đề thực tập.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Luận điểm 2 &bull; Trọng tâm khối lượng</div>
+ <h3 class="narrative-title">Tự học là thành phần chiếm thời lượng lớn nhất (47.4%)</h3>
+ <p class="narrative-body">Với 4.88 giờ chuẩn bị và tự học trên tổng số 10.3 giờ học mỗi tuần, sinh viên NUS dành thời gian tự nghiên cứu nhiều hơn gấp đôi thời lượng nghe giảng lý thuyết (2.41 giờ/tuần) và gấp 4 lần thực hành lab.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Luận điểm 3 &bull; Nút thắt tiên quyết</div>
+ <h3 class="narrative-title">Toán và Thống kê chiếm 34.8% môn cửa ngõ tiên quyết</h3>
+ <p class="narrative-body">Mạng lưới tiên quyết bộc lộ vai trò sống còn của các môn ngoại khoa: MA1521 (Giải tích), ST2334 (Xác suất thống kê) cùng với CS2040 (Cấu trúc dữ liệu) là những nút thắt có bậc ra cao nhất, quyết định khả năng học tiếp lên các môn AI Level 3 &ndash; 4.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Luận điểm 4 &bull; Nghịch lý AI/ML</div>
+ <h3 class="narrative-title">Học phần AI đòi hỏi thời gian đồ án vượt trội (+98%)</h3>
+ <p class="narrative-body">Các môn chuyên sâu AI/ML đòi hỏi trung bình 1.45 giờ làm đồ án thực hành mỗi tuần so với 0.73 giờ ở các môn CS tiêu chuẩn, phản ánh yêu cầu đào tạo nặng về huấn luyện mô hình, tinh chỉnh siêu tham số và triển khai thuật toán.</p>
+ </div>
+ </div>
+
+ 
+  <!-- Khung chương trình NUS BComp (AI) AY2025/26 & Cơ chế tuyển sinh chung -->
+  <div class="narrative-card" style="margin-top: 14px; margin-bottom: 20px; border-left: 3px solid var(--color-accent); background: var(--color-surface);">
+  <div class="narrative-badge">Khung chương trình BComp (AI) &bull; Niên khóa AY2025/26 &bull; Tuyển sinh chung</div>
+  <h3 class="narrative-title">Chương trình Cử nhân Trí tuệ Nhân tạo - BComp (AI) và nhóm đối chứng thực nghiệm</h3>
+  <p class="narrative-body">Từ niên khóa AY2025/26, NUS áp dụng nhóm tuyển sinh chung giữa hai chương trình Cử nhân Khoa học Máy tính và Cử nhân Trí tuệ Nhân tạo. Sinh viên học chung các khối cơ sở trong 4 học kỳ đầu tiên (Năm 1 và 2) trước khi chính thức đăng ký chuyên ngành đào tạo AI hoặc CS.</p>
+  
+  <div class="pillar-grid-4 font-mono" style="font-size: 11.5px;">
+  <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+  <b style="color: var(--color-ink);">Nền tảng khoa học máy tính (20 MCs)</b><br>
+  CS2030S (Lập trình II), CS2040S (Cấu trúc dữ liệu), CS2101, CS2103T (Kỹ nghệ phần mềm), CS3230 (Giải thuật)
+  </div>
+  <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+  <b style="color: var(--color-ink);">Nền tảng trí tuệ nhân tạo (20 MCs)</b><br>
+  CS2109S (Nhập môn AI), CS3263 (Nền tảng AI), CS3264 (Học máy), CS3268 (AI có trách nhiệm), CS4243/CS4248 (Tri giác)
+  </div>
+  <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+  <b style="color: var(--color-ink);">Nền tảng toán học &amp; xác suất (20 MCs)</b><br>
+  CS1231S (Cấu trúc rời rạc), CS2251 (Tối ưu hóa ML), MA1521 (Giải tích), MA1522 (Đại số), ST2334 (Xác suất thống kê)
+  </div>
+  <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+  <b style="color: var(--color-ink);">Tự chọn chuyên sâu &amp; đạo đức AI (24 MCs)</b><br>
+  IS1108 (Đạo đức số &amp; AI), CS4220, CS4225, CS4244, CS4246, CS4277, CS4278
+  </div>
+  </div>
+
+  <p class="narrative-body" style="font-size: 12.5px; color: var(--color-muted); margin-bottom: 0;"><b>Cơ sở thu thập 1.400 học phần toàn khoa:</b> Với mục đích chứng minh định lượng rằng các môn AI đòi hỏi thời gian đồ án vượt trội (+98%, <i>p</i> &lt; 0.001), việc thu thập toàn diện 1.400 học phần CS tiêu chuẩn là bắt buộc để thiết lập nhóm đối chứng thực nghiệm và bảo toàn đồ thị tiên quyết DAG từ các môn gốc rễ CS và Toán.</p>
+  </div>
+
+ <!-- Direct Inline 5-Year Trendline Quantitative Chart (Biểu đồ 02) -->
+ <div class="chart-card">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 02</span>
+ <span class="chart-name">Xu hướng mở môn CS &amp; AI qua 5 niên khóa (2022 &ndash; 2027)</span>
+ </div>
+ <div class="chart-actions" id="story-trend-controls">
+ <button class="chart-filter-btn active" id="btn-trend-total">Tổng số môn CS</button>
+ <button class="chart-filter-btn active" id="btn-trend-ai"><span style="color:var(--color-chart-red);">●</span> Môn AI/ML</button>
+ <button class="chart-filter-btn" id="btn-trend-avg">+ Đường trung bình 5 năm</button>
+ </div>
+ </div>
+ <div id="chart-story-trend" class="chart-container"></div>
+ <div id="story-trend-inspector" class="chart-inspector-card" style="display: none;"></div>
+ <div class="chart-takeaway">
+ <strong>Tổng kết thực nghiệm:</strong> Tỷ lệ các môn học tích hợp Trí tuệ Nhân tạo và Học máy tăng trưởng bền vững từ 26.8% (2022&ndash;2023) lên gần 33% (2026&ndash;2027), phản ánh sự mở rộng trọng tâm vào AI trong toàn bộ chương trình đào tạo của NUS.
+     </div>
+    </section>
+  </div>
+
+ <!-- ========================================================================
+ TAB 2: SYSTEM TOPOLOGY & CODEBASE KNOWLEDGE GRAPH
+ ======================================================================== -->
+ <div id="pane-graph" class="tab-pane">
+
+ <!-- Kott Studio Architecture Topology Archetype Banner -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">02</span> / <span class="banner-title">Đồ thị kiến trúc và mã nguồn</span></div>
+ <div class="banner-sub">// Giải phẫu hệ thống &bull; Bản đồ tri thức 4 phân tầng &bull; Hành trình kiến trúc</div>
+ </div>
+
+ <!-- Section 1: Interactive Architecture Knowledge Graph -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">02 / Đồ thị kiến trúc &bull; Giải phẫu hệ thống</div>
+ <h2 class="section-title">Bản đồ tri thức mã nguồn và luồng luân chuyển dữ liệu thực nghiệm</h2>
+ <p class="section-desc">Mô hình hóa toàn diện cấu trúc 4 phân tầng của hệ thống theo nguyên lý Understand-Anything: từ kho dữ liệu thô, các module tiền xử lý AST, động cơ suy luận toán học &amp; ML, đến tầng trực quan hóa tĩnh Native SVG. Tương tác với từng module để khám phá hồ sơ trách nhiệm, các thành phần phụ thuộc hoặc theo dõi hành trình kiến trúc 4 chặng.</p>
+ </div>
+
+ <!-- Guided Architecture Tour Bar -->
+ <div id="graph-tour-controls" class="graph-tour-bar font-mono">
+ <div class="tour-status-wrap">
+ <span class="tour-step-badge">CHẶNG 1/4</span>
+ <span class="tour-stage-name" id="tour-stage-title">Thu thập &amp; Lưu trữ dữ liệu thô (raw_data &rarr; loader)</span>
+ </div>
+ <div class="tour-actions-wrap">
+ <button type="button" id="btn-tour-prev" class="tour-btn" disabled>&larr; Chặng trước</button>
+ <button type="button" id="btn-tour-next" class="tour-btn">Chặng sau &rarr;</button>
+ <button type="button" id="btn-tour-reset" class="tour-btn tour-btn-reset">Đặt lại tour</button>
+ </div>
+ </div>
+ <div id="tour-stage-desc" class="tour-stage-description font-mono">
+ Bước đầu tiên trong quy trình: Thu thập dữ liệu API NUSMods qua 5 niên khóa (1.400 học phần) lưu trữ tại data/raw_nus_cs.json, sẵn sàng cho bộ tiền xử lý src/loader.py.
+ </div>
+
+ <!-- Architectural Layer Filter Pills -->
+ <div class="graph-filter-row">
+ <div class="filter-label font-mono">Lọc theo phân tầng:</div>
+ <div id="graph-layer-filters" class="graph-layer-pills font-mono">
+ <button type="button" class="graph-filter-pill active" data-layer="all">Tất cả các tầng (9 modules)</button>
+ <button type="button" class="graph-filter-pill" data-layer="data">Tầng lưu trữ dữ liệu</button>
+ <button type="button" class="graph-filter-pill" data-layer="engineering">Tầng tiền xử lý &amp; AST</button>
+ <button type="button" class="graph-filter-pill" data-layer="analytics">Tầng phân tích &amp; ML</button>
+ <button type="button" class="graph-filter-pill" data-layer="presentation">Tầng trực quan hóa &amp; Web</button>
+ </div>
+ </div>
+
+ <!-- Interactive Graph Layout: Left SVG Canvas, Right Live Inspector -->
+ <div class="graph-viewport-layout">
+ <div class="graph-canvas-container">
+ <div class="graph-canvas-header font-mono">
+ <span>// Sơ đồ liên kết hệ thống</span>
+ <span class="text-muted">Nhấp vào node để kiểm tra &bull; Hover để xem luồng</span>
+ </div>
+ <div id="arch-graph-svg" class="arch-svg-canvas"></div>
+ </div>
+
+ <div class="graph-inspector-container">
+ <div class="graph-inspector-header font-mono">
+ <span>// Hồ sơ giải phẫu mô-đun</span>
+ </div>
+ <div id="graph-node-inspector" class="graph-inspector-panel"></div>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+
+  <!-- ========================================================================
+       TAB 3: TECHNICAL & METHODOLOGY REPORT
+       ======================================================================== -->
+  <div id="pane-report" class="tab-pane">
+
+    <!-- Kott Studio Methodology Archetype Banner -->
+    <div class="archetype-banner font-mono">
+      <div><span class="banner-num">03</span> / <span class="banner-title">Báo cáo kỹ thuật và phương pháp luận</span></div>
+      <div class="banner-sub">// Báo cáo kỹ thuật &bull; Kiến trúc hệ thống &bull; 5 bài toán nghiên cứu &bull; Ma trận 8 thuật toán &bull; Kỹ thuật dữ liệu</div>
+    </div>
+
+    <!-- Section 1: System Architecture & Separation of Concerns -->
+    <section class="section-card reveal-card" style="--i: 0">
+      <div class="section-header">
+        <div class="section-eyebrow">03 / Báo cáo kỹ thuật &bull; Kiến trúc hệ thống</div>
+        <h2 class="section-title">Bản đồ kiến trúc hệ thống và ma trận giải thuật định lượng</h2>
+        <p class="section-desc">Hệ thống được thiết kế theo nguyên lý phân tách trách nhiệm, vận hành quy trình điều phối 4 trạm dữ liệu khép kín kết nối ma trận 8 thuật toán định lượng. Nhấp vào từng trạm xử lý để tra cứu chi tiết công thức toán, kết quả thực nghiệm và vị trí mã nguồn.</p>
+      </div>
+
+      <!-- 4-Stage Interactive Pipeline Flow -->
+      <div class="pipeline-flow-wrapper">
+        <div class="pipeline-flow-title font-mono">// QUY TRÌNH ĐIỀU PHỐI DỮ LIỆU 4 PHÂN TẦNG</div>
+        <div class="pipeline-map-grid" id="pipeline-stages-container">
+          <div class="pipeline-stage-card active" data-stage="stage-loader" tabindex="0">
+            <div class="stage-badge-row">
+              <span class="stage-tag font-mono">Tầng 01</span>
+              <span class="badge-pill badge-primary">Kỹ thuật dữ liệu</span>
+            </div>
+            <div class="stage-filename font-mono">src/loader.py</div>
+            <div class="stage-desc">Thu thập API NUSMods qua 5 niên khóa, giải mã cây AST điều kiện tiên quyết and/or/nOf, bù khuyết trung vị theo cấp bậc đào tạo.</div>
+            <div class="stage-meta-row font-mono">
+              <span>1.400 bản ghi &times; 26 trường</span>
+              <span class="stage-arrow-indicator">&rarr;</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage-card" data-stage="stage-analytics" tabindex="0">
+            <div class="stage-badge-row">
+              <span class="stage-tag font-mono">Tầng 02</span>
+              <span class="badge-pill badge-accent">Động cơ Thống kê &amp; ML</span>
+            </div>
+            <div class="stage-filename font-mono">src/analytics.py</div>
+            <div class="stage-desc">Tính toán định lượng Q1&ndash;Q5: mô hình OLS, kiểm định Welch t-test, khoảng tin cậy 95%, TF-IDF, K-Means và PCA 2D.</div>
+            <div class="stage-meta-row font-mono">
+              <span>8 thuật toán cốt lõi</span>
+              <span class="stage-arrow-indicator">&rarr;</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage-card" data-stage="stage-builder" tabindex="0">
+            <div class="stage-badge-row">
+              <span class="stage-tag font-mono">Tầng 03</span>
+              <span class="badge-pill badge-neutral">Biên dịch web tĩnh</span>
+            </div>
+            <div class="stage-filename font-mono">src/builder.py</div>
+            <div class="stage-desc">Trình biên dịch tĩnh siêu gọn (129 dòng) ghép số liệu JSON vào khung mẫu HTML thuần, chuẩn hóa đường dẫn tương đối.</div>
+            <div class="stage-meta-row font-mono">
+              <span>Xuất bản docs/index.html</span>
+              <span class="stage-arrow-indicator">&rarr;</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage-card" data-stage="stage-presentation" tabindex="0">
+            <div class="stage-badge-row">
+              <span class="stage-tag font-mono">Tầng 04</span>
+              <span class="badge-pill badge-primary">Trình diễn Native SVG</span>
+            </div>
+            <div class="stage-filename font-mono">docs/charts.js</div>
+            <div class="stage-desc">Engine vẽ 20 biểu đồ Native SVG tương tác và đồ thị tiên quyết DAG tự tạo, tải tức thì không phụ thuộc thư viện bên ngoài.</div>
+            <div class="stage-meta-row font-mono">
+              <span>20 biểu đồ &bull; Zero dependency</span>
+              <span class="stage-arrow-indicator">&check;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Pipeline Inspector Panel -->
+        <div class="arch-inspector-card" id="pipeline-inspector" style="margin-top: 14px;">
+          <!-- Populated dynamically by initPipelineExplorer() in docs/charts.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 5 Core Empirical Research Problems (Q1 - Q5) -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">03 / Báo cáo kỹ thuật &bull; Bài toán nghiên cứu</div>
+ <h2 class="section-title">Tổng quan 5 bài toán nghiên cứu thực nghiệm cốt lõi (Q1 &ndash; Q5)</h2>
+ <p class="section-desc">Toàn bộ cổng phân tích được xây dựng xoay quanh 5 bài toán nghiên cứu liên hoàn: từ cơ cấu đào tạo, kiểm toán thời lượng thực tế, mạng lưới điều kiện tiên quyết, đến kiểm định thống kê suy diễn và học máy phân cụm tri thức.</p>
+ </div>
+
+ <div class="research-questions-grid">
+ <!-- Card Q1 -->
+ <div class="research-card">
+ <div>
+ <div class="research-card-header">
+ <span class="research-card-code">Q1</span>
+ <span class="research-card-cat font-mono">Cơ cấu &amp; Chuẩn hóa</span>
+ </div>
+ <h3 class="research-card-title">Cơ cấu đào tạo &amp; Mức độ chuẩn hóa chương trình</h3>
+ <p class="research-card-desc">Khảo sát tỷ trọng giữa bậc Cử nhân (Level 1&ndash;4) và Sau đại học (Level 5&ndash;6), kiểm chứng chính sách chuẩn hóa 4 MCs (10 giờ/tuần) và phân bổ quy mô 3 phân ngành CS, IS, DSA.</p>
+ <div class="research-card-meta font-mono">
+ <span><b>Dữ liệu:</b> 1.400 lượt môn (5 niên khóa)</span>
+            <span><b>Phương pháp:</b> Phân phối tần suất, biểu đồ cây phân tầng</span>
+ </div>
+ </div>
+ <button type="button" class="research-jump-btn font-mono" onclick="window.switchTab('curriculum')">
+ <span>Xem chi tiết tại Tab Cơ cấu (Q1)</span> <span>&rarr;</span>
+ </button>
+ </div>
+
+ <!-- Card Q2 -->
+ <div class="research-card">
+ <div>
+ <div class="research-card-header">
+ <span class="research-card-code">Q2</span>
+ <span class="research-card-cat font-mono">Khối lượng học tập</span>
+ </div>
+ <h3 class="research-card-title">Kiểm toán khối lượng &amp; Phân bổ quỹ thời gian thực nghiệm</h3>
+ <p class="research-card-desc">Phân rã 5 thành phần giờ học hàng tuần (Lec, Tut, Lab, Proj, Prep), xây dựng mô hình hồi quy tuyến tính OLS giữa cấp độ môn và giờ tự học, kiểm toán áp lực đồ án thực hành môn AI.</p>
+ <div class="research-card-meta font-mono">
+ <span><b>Dữ liệu:</b> 348 môn có cấu trúc khối lượng chi tiết</span>
+            <span><b>Phương pháp:</b> Hồi quy OLS (<i>y</i> = 0.29<i>x</i> + 2.06), phân rã giờ học</span>
+ </div>
+ </div>
+ <button type="button" class="research-jump-btn font-mono" onclick="window.switchTab('workload')">
+ <span>Xem chi tiết tại Tab Khối lượng (Q2)</span> <span>&rarr;</span>
+ </button>
+ </div>
+
+ <!-- Card Q3 -->
+ <div class="research-card">
+ <div>
+ <div class="research-card-header">
+ <span class="research-card-code">Q3</span>
+ <span class="research-card-cat font-mono">Mạng lưới tiên quyết</span>
+ </div>
+ <h3 class="research-card-title">Cấu trúc topo tiên quyết &amp; Tính liên ngành</h3>
+ <p class="research-card-desc">Mô hình hóa chuỗi tiên quyết bằng đồ thị có hướng DAG, nhận diện các môn học nút thắt cổ chai huyết mạch (CS2040, ST2334, MA1521) và định lượng vai trò của khoa Toán &ndash; Thống kê.</p>
+ <div class="research-card-meta font-mono">
+ <span><b>Dữ liệu:</b> 348 nút học phần, cây AST logic and/or</span>
+            <span><b>Phương pháp:</b> Đồ thị có hướng DAG, xếp hạng bậc ra</span>
+ </div>
+ </div>
+ <button type="button" class="research-jump-btn font-mono" onclick="window.switchTab('prereq')">
+ <span>Xem chi tiết tại Tab Tiên quyết (Q3)</span> <span>&rarr;</span>
+ </button>
+ </div>
+
+ <!-- Card Q4 -->
+ <div class="research-card">
+ <div>
+ <div class="research-card-header">
+ <span class="research-card-code">Q4</span>
+ <span class="research-card-cat font-mono">Thống kê suy diễn</span>
+ </div>
+ <h3 class="research-card-title">Kiểm định thống kê suy diễn &amp; Bước nhảy tự học</h3>
+ <p class="research-card-desc">Kiểm định giả thuyết hai mẫu độc lập Welch t-test về sự sai khác giờ tự học giữa Cử nhân và Sau đại học; ước lượng khoảng tin cậy 95% và ma trận tương quan nửa tam giác Pearson.</p>
+ <div class="research-card-meta font-mono">
+ <span><b>Dữ liệu:</b> 838 môn Cử nhân so với 562 môn Sau đại học</span>
+            <span><b>Phương pháp:</b> Welch <i>t</i>-test (<i>p</i> &lt; 0.001), 95% CI, ma trận nửa tam giác Pearson</span>
+ </div>
+ </div>
+ <button type="button" class="research-jump-btn font-mono" onclick="window.switchTab('stats')">
+ <span>Xem chi tiết tại Tab Thống kê (Q4)</span> <span>&rarr;</span>
+ </button>
+ </div>
+
+ <!-- Card Q5 -->
+ <div class="research-card">
+ <div>
+ <div class="research-card-header">
+ <span class="research-card-code">Q5</span>
+ <span class="research-card-cat font-mono">Khai phá ML &amp; NLP</span>
+ </div>
+ <h3 class="research-card-title">Khai phá học máy &amp; Phân cụm tri thức AI</h3>
+ <p class="research-card-desc">Xử lý ngôn ngữ tự nhiên TF-IDF trên đề cương học phần, xác định số cụm tối ưu K = 3 bằng phương pháp Elbow, và chiếu trực giao không gian 2D PCA phân tách rõ rệt 3 cụm năng lực chuyên môn.</p>
+ <div class="research-card-meta font-mono">
+ <span><b>Dữ liệu:</b> Văn bản mô tả 348 môn học</span>
+            <span><b>Phương pháp:</b> TF-IDF, K-Means (<i>K</i> = 3, Elbow), chiếu trực giao 2D PCA</span>
+ </div>
+ </div>
+ <button type="button" class="research-jump-btn font-mono" onclick="window.switchTab('ml')">
+ <span>Xem chi tiết tại Tab Học máy (Q5)</span> <span>&rarr;</span>
+ </button>
+ </div>
+ </div>
+ <!-- 8 Core Algorithms Matrix -->
+ <div class="algo-matrix-wrapper" style="margin-top: 32px;">
+ <div class="algo-matrix-header">
+ <div class="algo-matrix-title font-mono">// MA TRẬN 8 GIẢI THUẬT ĐỊNH LƯỢNG CỐT LÕI</div>
+ <div class="algo-matrix-sub">Bao phủ toàn bộ các bài toán nghiên cứu từ Q2 đến Q5 sắp xếp tuần tự theo tiến trình phân tích định lượng.</div>
+ </div>
+ <div class="algo-matrix-grid" id="algo-chips-container">
+ <!-- Row 1: Q2.2 -> Q3.1-3 -> Q4.1 -> Q4.2 -->
+ <button type="button" class="algo-chip active" data-algo="algo-ols">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q2.2</span>
+ <span class="algo-chip-cat">Hồi quy OLS</span>
+ </div>
+ <div class="algo-chip-name">Hồi quy tuyến tính MCs &ndash; Giờ học</div>
+ <div class="algo-chip-stat font-mono">y = 0.29x + 2.06 &bull; R<sup>2</sup> = 0.069</div>
+ </button>
+
+ <button type="button" class="algo-chip" data-algo="algo-dag">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q3.1&ndash;Q3.3</span>
+ <span class="algo-chip-cat">Đồ thị DAG</span>
+ </div>
+ <div class="algo-chip-name">Cấu trúc topo điều kiện tiên quyết</div>
+ <div class="algo-chip-stat font-mono">Bậc ra cực đại CS1010 = 28</div>
+ </button>
+
+ <button type="button" class="algo-chip" data-algo="algo-ttest">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q4.1</span>
+ <span class="algo-chip-cat">Welch t-test</span>
+ </div>
+ <div class="algo-chip-name">Kiểm định sai khác tải học tập AI</div>
+ <div class="algo-chip-stat font-mono">t = -10.44 &bull; p = 1.84 &times; 10<sup>-24</sup></div>
+ </button>
+
+ <button type="button" class="algo-chip" data-algo="algo-ci">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q4.2</span>
+ <span class="algo-chip-cat">Khoảng tin cậy</span>
+ </div>
+ <div class="algo-chip-name">Khoảng tin cậy 95% giờ học kỳ vọng</div>
+ <div class="algo-chip-stat font-mono">[11.22, 11.95] giờ/tuần</div>
+ </button>
+
+ <!-- Row 2: Q4.3 -> Q5.1 -> Q5.2 -> Q5.3 -->
+ <button type="button" class="algo-chip" data-algo="algo-pearson">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q4.3</span>
+ <span class="algo-chip-cat">Tương quan Pearson</span>
+ </div>
+ <div class="algo-chip-name">Ma trận nửa tam giác tương quan</div>
+ <div class="algo-chip-stat font-mono">r = 0.812 (Giờ tự chuẩn bị bài)</div>
+ </button>
+
+ <button type="button" class="algo-chip" data-algo="algo-tfidf">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q5.1</span>
+ <span class="algo-chip-cat">NLP &bull; TF-IDF</span>
+ </div>
+ <div class="algo-chip-name">Trích xuất từ khóa đặc trưng AI</div>
+ <div class="algo-chip-stat font-mono">100 đặc trưng n-gram</div>
+ </button>
+
+ <button type="button" class="algo-chip" data-algo="algo-kmeans">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q5.2</span>
+ <span class="algo-chip-cat">Phân cụm K-Means</span>
+ </div>
+ <div class="algo-chip-name">Phân cụm năng lực &amp; Điểm khuỷu tay</div>
+ <div class="algo-chip-stat font-mono">K = 3 &bull; Giảm 46.2% quán tính</div>
+ </button>
+
+ <button type="button" class="algo-chip" data-algo="algo-pca">
+ <div class="algo-chip-top">
+ <span class="algo-chip-code font-mono">Q5.3</span>
+ <span class="algo-chip-cat">Giảm chiều PCA</span>
+ </div>
+ <div class="algo-chip-name">Chiếu trực giao PCA 2 chiều</div>
+ <div class="algo-chip-stat font-mono">Silhouette = 0.5355</div>
+ </button>
+ </div>
+
+ <!-- Dedicated Algorithm Inspector Panel -->
+ <div class="arch-inspector-card" id="algo-inspector" style="margin-top: 14px;">
+ <!-- Populated dynamically by initAlgorithmExplorer() in docs/charts.js -->
+ </div>
+
+ </section>
+
+
+ <!-- Section 2: Data Engineering & Preprocessing Deep Dive -->
+ <section class="section-card reveal-card" style="--i: 1">
+ <div class="section-header">
+ <div class="section-eyebrow">03 / Báo cáo kỹ thuật &bull; Kỹ thuật dữ liệu</div>
+ <h2 class="section-title">Quy trình kỹ thuật dữ liệu và tiền xử lý thực nghiệm</h2>
+ <p class="section-desc">Mô hình hóa chi tiết quy trình khoa học dữ liệu từ cấu trúc thu thập thô của NUSMods API, thuật toán bóc tách cây logic tiên quyết AST, chiến lược bù khuyết trung vị phân tầng đến bộ dữ liệu 1.400 học phần hoàn chỉnh.</p>
+ </div>
+
+ <!-- Khối kiến trúc chương trình BComp (AI) AY2025/26 & Dữ liệu đối chứng -->
+ <div class="narrative-card" style="margin-bottom: 20px; border-left: 3px solid var(--color-chart-red); background: var(--color-surface);">
+ <div class="narrative-badge">Chuyên ngành trọng tâm &bull; BComp (AI) AY2025/26 &bull; 160 Modular Credits</div>
+ <h3 class="narrative-title">Kiến trúc chương trình Cử nhân Trí tuệ Nhân tạo NUS và vai trò của tập dữ liệu đối chứng</h3>
+ <p class="narrative-body">Bắt đầu từ năm học AY2025/26, NUS chính thức triển khai nhóm tuyển sinh chung cho hai văn bằng: <i>Cử nhân Khoa học Máy tính</i> và <i>Cử nhân Trí tuệ Nhân tạo</i>. Trong 4 học kỳ đầu tiên (Năm 1 và 2), sinh viên học chung các khối kiến thức cốt lõi ở giai đoạn cơ sở chung. Đến cuối kỳ 4, sinh viên mới chính thức đăng ký phân luồng vào chuyên ngành AI hoặc CS.</p>
+ 
+ <div class="pillar-grid-4">
+ <div style="padding: 12px 14px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <div class="font-mono" style="font-size: 11px; font-weight: 700; color: var(--color-accent); margin-bottom: 4px;">Khối chung và đạo đức (40 MCs)</div>
+ <div style="font-size: 12.5px; line-height: 1.5; color: var(--color-ink);">
+ &bull; 6 Trụ cột ĐHQG (24 MCs): ES2660, CS1101S, GEC%, Data Literacy, GES%, GEN%<br>
+ &bull; <b>Đạo đức trí tuệ nhân tạo:</b> <code>IS1108</code> Đạo đức số và AI (4 MCs)<br>
+ &bull; Giáo dục liên ngành và xuyên ngành: Các môn ID/CD (12 MCs)
+ </div>
+ </div>
+ 
+ <div style="padding: 12px 14px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <div class="font-mono" style="font-size: 11px; font-weight: 700; color: var(--color-chart-red); margin-bottom: 4px;">Nền tảng AI cốt lõi (20 MCs)</div>
+ <div style="font-size: 12.5px; line-height: 1.5; color: var(--color-ink);">
+ &bull; <code>CS2109S</code>: Nhập môn AI và học máy (4 MCs)<br>
+ &bull; <code>CS3263</code>: Nền tảng trí tuệ nhân tạo (4 MCs)<br>
+ &bull; <code>CS3264</code>: Nền tảng học máy (4 MCs)<br>
+ &bull; <code>CS3268</code>: Trí tuệ nhân tạo có trách nhiệm (4 MCs)<br>
+ &bull; <b>Khối tri giác:</b> <code>CS4243</code> Thị giác máy tính hoặc <code>CS4248</code> Xử lý ngôn ngữ tự nhiên (4 MCs)
+ </div>
+ </div>
+
+ <div style="padding: 12px 14px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <div class="font-mono" style="font-size: 11px; font-weight: 700; color: #059669; margin-bottom: 4px;">Nền tảng CS cơ sở (20 MCs)</div>
+ <div style="font-size: 12.5px; line-height: 1.5; color: var(--color-ink);">
+ &bull; <code>CS2030S</code>: Phương pháp lập trình II (4 MCs)<br>
+ &bull; <code>CS2040S</code>: Cấu trúc dữ liệu và giải thuật (4 MCs)<br>
+ &bull; <code>CS2101</code> &amp; <code>CS2103T</code>: Kỹ nghệ phần mềm và giao tiếp (8 MCs)<br>
+ &bull; <code>CS3230</code>: Thiết kế và phân tích giải thuật (4 MCs)
+ </div>
+ </div>
+
+ <div style="padding: 12px 14px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <div class="font-mono" style="font-size: 11px; font-weight: 700; color: #D97706; margin-bottom: 4px;">Nền tảng toán học và xác suất (20 MCs)</div>
+ <div style="font-size: 12.5px; line-height: 1.5; color: var(--color-ink);">
+ &bull; <code>CS1231S</code>: Cấu trúc rời rạc (4 MCs)<br>
+ &bull; <code>CS2251</code>: Tối ưu hóa cho học máy (4 MCs)<br>
+ &bull; <code>MA1521</code>: Giải tích cho tin học (4 MCs)<br>
+ &bull; <code>MA1522</code>: Đại số tuyến tính cho tin học (4 MCs)<br>
+ &bull; <code>ST2334</code>: Xác suất và thống kê (4 MCs)
+ </div>
+ </div>
+ </div>
+
+ <p class="narrative-body" style="font-size: 13px; color: var(--color-ink); margin-bottom: 6px;"><b>Vì sao đề tài khảo sát 1.400 học phần toàn khoa Máy tính NUS thay vì chỉ lọc môn AI?</b></p>
+ <ol style="padding-left: 20px; font-size: 12.5px; line-height: 1.6; color: var(--color-muted);">
+ <li><b>Đặc thù kỹ thuật NUSMods API:</b> Cổng dữ liệu NUSMods tổ chức theo mã khoa và tiền tố môn học (<code>CS</code>, <code>IS</code>, <code>DSA</code>) chứ không có API lọc trực tiếp theo từng bằng cấp cử nhân cụ thể.</li>
+ <li><b>Nhóm đối chứng bắt buộc cho suy diễn thống kê:</b> Trong suy diễn thống kê, để chứng minh các môn AI/ML có tính chất khác biệt (ví dụ đòi hỏi +98% giờ đồ án thực hành so với môn tiêu chuẩn, <i>p</i> &lt; 0.001 ở kiểm định Welch t-test), bắt buộc phải có tập 1.133 môn học CS/IS/DSA tiêu chuẩn làm nhóm đối chứng thực nghiệm.</li>
+ <li><b>Bảo toàn tính liên thông của đồ thị tiên quyết DAG:</b> Các môn AI chuyên sâu (Level 3 &ndash; 4) đều có nút tiên quyết bắt nguồn từ CS cơ sở (<code>CS1101S</code>, <code>CS2040S</code>) và Toán (<code>MA1521</code>, <code>ST2334</code>). Việc quét toàn bộ 1.400 môn giúp bảo toàn cấu trúc topo, tính toán chính xác bậc phân tán In/Out-Degree và thuật toán xếp hạng nút thắt huyết mạch.</li>
+ </ol>
+ </div>
+
+ <!-- Sub-block 2: Raw Data Ingestion Schema -->
+ <div class="narrative-card" style="margin-bottom: 20px; border-left: 3px solid var(--color-accent); background: var(--color-surface);">
+ <div class="narrative-badge">Thu thập dữ liệu thô &bull; NUSMods API (2020&ndash;2025)</div>
+ <h3 class="narrative-title">Dữ liệu thô ban đầu gồm những gì và các thách thức xử lý thực tế?</h3>
+ <p class="narrative-body">Dữ liệu được trích xuất từ API công khai chính thức của NUSMods trải dài qua 5 niên khóa học thuật liên tiếp (2020/2021 đến 2024/2025) và được lưu trữ ở bộ nhớ tạm thô <code>data/raw_nus_cs.json</code> (dung lượng ~10 MB). Mỗi bản ghi học phần thô chứa các trường thông tin cơ bản và các cấu trúc dữ liệu lồng nhau phức tạp:</p>
+ <div class="raw-schema-grid font-mono" style="margin: 14px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; font-size: 12px;">
+ <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <b style="color: var(--color-ink);">moduleCode</b>: Mã định danh môn học (CS, IS, CP, BT, IFS, BMA, BZD)
+ </div>
+ <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <b style="color: var(--color-ink);">title &amp; description</b>: Văn bản tự do mô tả mục tiêu và đề cương môn học
+ </div>
+ <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <b style="color: var(--color-ink);">moduleCredit</b>: Số tín chỉ định mức học thuật (từ 0.0 đến 12.0 MCs)
+ </div>
+ <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <b style="color: var(--color-ink);">workload [5]</b>: Mảng phân bổ giờ [lecture, tut, lab, proj, prep] hàng tuần
+ </div>
+ <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <b style="color: var(--color-ink);">prereqTree</b>: Cây JSON lồng nhau biểu diễn điều kiện logic (and/or/nOf)
+ </div>
+ <div class="raw-schema-item" style="padding: 10px 12px; background: var(--color-paper-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);">
+ <b style="color: var(--color-ink);">semesterData</b>: Thời khóa biểu, địa điểm giảng đường (venues) và lịch thi
+ </div>
+ </div>
+ <p class="narrative-body" style="font-size: 13px; color: var(--color-muted);"><b>Thách thức đối với bài toán Khoa học Dữ liệu:</b> Khoảng 18.4% môn học bị khuyết giá trị mảng <code>workload</code>; cây logic <code>prereqTree</code> có cấu trúc đệ quy phi tuyến tính không thể đưa trực tiếp vào ma trận phân tích; và các mô tả tóm tắt chứa nhiều từ dừng kỹ thuật làm giảm chất lượng mô hình phân cụm văn bản.</p>
+ </div>
+
+ <!-- Sub-block 3: 4-Stage Data Wrangling & Feature Engineering -->
+ <div class="narrative-grid" style="margin-bottom: 20px;">
+ <div class="narrative-card">
+ <div class="narrative-badge">Bước 01 &bull; Làm sạch dữ liệu</div>
+ <h3 class="narrative-title">Khử trùng lặp và chuẩn hóa niên khóa</h3>
+ <p class="narrative-body">Tập dữ liệu trải dài qua 5 năm có nhiều học phần được mở lại nhiều lần. Quy trình trích xuất lọc lấy phiên bản cập nhật mới nhất cho từng mã môn học duy nhất, chuẩn hóa mã phân ngành (CS, IS, DSA) và loại bỏ các môn học thử nghiệm không có mã tín chỉ hợp lệ.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Bước 02 &bull; Giải mã cây AST</div>
+ <h3 class="narrative-title">Bóc tách cây logic tiên quyết AST</h3>
+ <p class="narrative-body">Hàm <code>parse_prereq_tree()</code> trong <code>src/loader.py</code> duyệt đệ quy cây JSON của NUSMods để chuyển các điều kiện logic lồng nhau (toán tử <code>and</code>, <code>or</code>, <code>nOf</code>) thành mảng mã môn tiên quyết trực tiếp. Đây là tiền đề để xây dựng đồ thị có hướng DAG và phân tích điểm nghẽn cổ chai trong bài toán Q3.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Bước 03 &bull; Bù khuyết dữ liệu</div>
+ <h3 class="narrative-title">Bù khuyết trung vị phân tầng theo cấp độ</h3>
+ <p class="narrative-body">Tránh dùng trung bình toàn cục (Mean) vì bị lệch phải bởi các môn đồ án ngoại lai (12 MCs). Hệ thống phân tầng môn học theo cấp độ (Level 1..6) và bù khuyết các trường giờ tự chuẩn bị bài, thực hành bằng giá trị trung vị của từng cấp bậc đào tạo tương ứng: <code>Workload<sub>imp</sub> = Median(Workload | Level)</code>.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Bước 04 &bull; Kỹ thuật đặc trưng</div>
+ <h3 class="narrative-title">Trích xuất đặc trưng định lượng &amp; Gắn cờ AI</h3>
+ <p class="narrative-body">Gắn nhãn cờ nhị phân <code>is_ai_core</code> qua Regex quét từ khóa AI/ML trên tiêu đề và mô tả; tạo phân tầng đào tạo <code>study_tier</code> ("Đại học" vs "Sau đại học"); tính chỉ số tự học <code>self_study_ratio = prep_hours / total_workload</code>; và chuẩn hóa Min-Max các biến số liên tục đưa về thang [0, 1] phục vụ phân cụm K-Means và PCA.</p>
+ </div>
+ </div>
+
+ <!-- Sub-block 4: Raw vs Cleaned Data Audit Table -->
+ <div class="narrative-card" style="margin-bottom: 20px;">
+ <div class="narrative-badge">Kiểm toán dữ liệu &bull; Đối chiếu trước và sau xử lý</div>
+ <h3 class="narrative-title">Bảng đối chiếu chất lượng dữ liệu thô và dữ liệu sau xử lý</h3>
+ <div style="overflow-x: auto; margin-top: 12px;">
+ <table class="table-custom font-mono" style="font-size: 12px; width: 100%;">
+ <thead>
+ <tr>
+ <th style="text-align: left;">Tiêu chí đối chiếu</th>
+ <th style="text-align: left;">Dữ liệu thô (Raw NUSMods API)</th>
+ <th style="text-align: left;">Dữ liệu sạch (data/cleaned_nus_cs.csv)</th>
+ <th style="text-align: left;">Hiệu quả kỹ thuật dữ liệu</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><b>Cấu trúc lưu trữ</b></td>
+ <td>JSON lồng nhau nhiều tầng (~10 MB)</td>
+ <td>CSV bảng phẳng 26 cột (~420 KB)</td>
+ <td>Giảm 95.8% dung lượng, nạp bảng tức thì</td>
+ </tr>
+ <tr>
+ <td><b>Tỷ lệ khuyết thiếu workload</b></td>
+ <td>18.4% bản ghi khuyết thiếu</td>
+ <td>0.0% (Đã bù khuyết trung vị phân tầng)</td>
+ <td>Triệt tiêu hoàn toàn sai lệch thống kê</td>
+ </tr>
+ <tr>
+ <td><b>Điều kiện tiên quyết</b></td>
+ <td>Cây logic JSON phức tạp (and/or/nOf)</td>
+ <td>Mảng phẳng các mã tiên quyết trực tiếp</td>
+ <td>Sẵn sàng cho thuật toán phân tích DAG</td>
+ </tr>
+ <tr>
+ <td><b>Nhận diện môn học AI/ML</b></td>
+ <td>Chưa phân loại (văn bản thô)</td>
+ <td>Cờ nhị phân <code>is_ai_core</code> (267 môn AI)</td>
+ <td>Chuẩn hóa cho kiểm định Welch t-test</td>
+ </tr>
+ <tr>
+ <td><b>Đặc trưng phân tích</b></td>
+ <td>Chỉ có 5 số giờ học cơ bản</td>
+ <td>Bổ sung <code>self_study_ratio</code>, <code>study_tier</code>, Min-Max</td>
+ <td>Đáp ứng đầy đủ yêu cầu mô hình OLS &amp; ML</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <!-- Sub-block 4: Call to Action Button to Data Explorer -->
+ <div class="narrative-card" style="border: 1px solid var(--color-accent-border); background: var(--color-accent-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+ <div>
+ <div class="font-mono" style="font-size: 11px; font-weight: 700; color: var(--color-accent); letter-spacing: 0.08em;">// TRUY XUẤT VÀ TRA CỨU DỮ LIỆU ĐÃ XỬ LÝ</div>
+ <h4 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-top: 4px;">Khám phá toàn bộ 1.400 học phần đã qua xử lý trên bảng dữ liệu tương tác</h4>
+ <p style="font-size: 13px; color: var(--color-muted); margin-top: 2px;">Tra cứu trực tiếp từng học phần theo cấp độ (Level 1..6), phân tầng đào tạo, cờ AI và các thành phần giờ học thực tế.</p>
+ </div>
+ <button type="button" class="inspector-link-btn" style="padding: 10px 18px; font-size: 12px; font-weight: 700;" onclick="window.switchTab('explorer')">Xem dữ liệu đã xử lý tại Bảng tra cứu học phần &rarr;</button>
+ </div>
+ </section>
+ <!-- Section 3: Statistical Inference & Machine Learning Methodology -->
+ <section class="section-card reveal-card" style="--i: 2">
+ <div class="section-header">
+ <div class="section-eyebrow">03 / Báo cáo kỹ thuật &bull; Phương pháp luận thống kê</div>
+ <h2 class="section-title">Cơ sở lý thuyết thống kê suy diễn và mô hình học máy</h2>
+ <p class="section-desc">Mọi kết luận định lượng trong cổng phân tích đều được bảo đảm bằng các kiểm định thống kê chính quy và thuật toán học máy đã kiểm chứng.</p>
+ </div>
+
+ <div class="narrative-grid">
+ <div class="narrative-card">
+ <div class="narrative-badge">Kiểm định giả thuyết Welch t-test</div>
+ <h3 class="narrative-title">Kiểm định hai mẫu độc lập với phương sai dị biệt</h3>
+ <p class="narrative-body">Do cỡ mẫu và độ phân tán giữa bậc Cử nhân (Level 1&ndash;4, N=838) và Sau đại học (Level 5&ndash;6, N=562) không đồng nhất, kiểm định Welch t-test được lựa chọn thay thế cho Student t-test truyền thống. Giá trị <i>t</i> = -10.44 và <i>p</i> = 1.84 &times; 10<sup>-24</sup> bác bỏ dứt khoát giả thuyết không <i>H</i><sub>0</sub>, khẳng định sự khác biệt có ý nghĩa thống kê cao độ.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Ước lượng khoảng tin cậy 95%</div>
+ <h3 class="narrative-title">Khoảng tin cậy 95% cho kỳ vọng khối lượng</h3>
+ <p class="narrative-body">Áp dụng công thức ước lượng khoảng tin cậy đối xứng dựa trên phân phối t-Student mẫu: <code>x̄ &plusmn; t<sub>crit</sub> &times; (s / &radic;n)</code>. Khoảng tin cậy 95% của tổng khối lượng là [11.22, 11.95] giờ/tuần và của thời lượng tự học là [3.12, 3.28] giờ/tuần, chứng minh độ tin cậy thực nghiệm rất vững chắc.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Mô hình hồi quy tuyến tính OLS</div>
+ <h3 class="narrative-title">Hồi quy tuyến tính OLS giữa cấp độ và giờ tự học</h3>
+ <p class="narrative-body">Mô hình <code>y = 0.29x + 2.06</code> (<i>R</i><sup>2</sup> = 0.069, <i>p</i> &lt; 0.001) lượng hóa rằng: cứ mỗi khi sinh viên nâng lên 1 cấp độ môn học (từ Level 1 lên Level 2, 3...), nhu cầu chuẩn bị và tự nghiên cứu bài học tăng trung bình 0.29 giờ mỗi tuần.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Học máy không giám sát TF-IDF, K-Means và PCA</div>
+ <h3 class="narrative-title">Khai phá cấu trúc chủ đề từ văn bản mô tả môn học</h3>
+ <p class="narrative-body">Văn bản mô tả 348 môn học được loại bỏ dừng từ mở rộng và vector hóa qua ma trận TF-IDF. Phương pháp điểm uốn Elbow xác định số cụm tối ưu <i>K</i> = 3 (giảm 46.2% quán tính inertia). Không gian chiếu trực giao PCA 2D thể hiện sự phân tách rành mạch giữa Cụm AI/Dữ liệu, Cụm Kỹ thuật Hệ thống và Cụm Thực tập FOS.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Section 4: Visual Standards & Data Storytelling Philosophy -->
+ <section class="section-card reveal-card" style="--i: 3">
+ <div class="section-header">
+ <div class="section-eyebrow">03 / Báo cáo kỹ thuật &bull; Tiêu chuẩn trực quan hóa dữ liệu</div>
+ <h2 class="section-title">Triết lý thiết kế trực quan Edward Tufte và nghệ thuật kể chuyện dữ liệu</h2>
+ <p class="section-desc">Kết hợp chuẩn mực khoa học hiển thị dữ liệu khắt khe của Edward Tufte cùng nguyên lý truyền tải thông điệp thực nghiệm của Cole Nussbaumer Knaflic.</p>
+ </div>
+
+ <div class="narrative-grid">
+ <div class="narrative-card">
+ <div class="narrative-badge">Khoa học thị giác Edward Tufte</div>
+ <h3 class="narrative-title">Tối đa hóa tỷ lệ dữ liệu trên mực</h3>
+ <p class="narrative-body">Triệt tiêu hoàn toàn các thành phần trang trí thừa thãi. Áp dụng bảng màu tương phản có chủ đích: sắc xám trung tính làm nền tảng ngữ cảnh, xanh đậm và đỏ sẫm làm tín hiệu nổi bật. Mọi biểu đồ đều có tiêu đề hành động giải thích ngay kết luận thực nghiệm.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Kỹ thuật đồ họa Native SVG</div>
+ <h3 class="narrative-title">Biểu đồ vector bản địa không phụ thuộc thư viện</h3>
+ <p class="narrative-body">20 biểu đồ tương tác được tạo dựng hoàn toàn bằng mã JavaScript và SVG bản địa trực tiếp trong DOM. Trang web không cần tải các thư viện cồng kềnh như Plotly hay Chart.js (tiết kiệm hơn 3.5 MB dung lượng nạp ban đầu), tốc độ hiển thị tức thì và hoạt động hoàn hảo ngay cả khi ngắt kết nối mạng.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Quy chuẩn trực quan &bull; Zero Overlap</div>
+ <h3 class="narrative-title">Bố cục nhãn độc lập và bao trọn dải thực nghiệm</h3>
+ <p class="narrative-body">Triệt tiêu hoàn toàn hiện tượng chồng lấn (Zero Overlap): các phương trình hồi quy, nhãn giá trị trung bình, chú thích và đường xu hướng đều có không gian hiển thị độc lập. Đồng thời, trục tung và trục hoành luôn bao trọn dải giá trị thực nghiệm để không có điểm dữ liệu nào bị rơi ra ngoài biên đồ thị.</p>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Kể chuyện dữ liệu Cole Knaflic</div>
+ <h3 class="narrative-title">Hộp thông điệp thực nghiệm đúc kết phát hiện định lượng</h3>
+ <p class="narrative-body">Mọi biểu đồ đều tích hợp hộp thông điệp thực nghiệm (Action Takeaway) đặt ngay dưới vùng vẽ theo triết lý <i>Storytelling with Data</i> của Cole Nussbaumer Knaflic. Cấu trúc này giúp người xem nắm bắt ngay phát hiện định lượng cốt lõi (như độ chênh lệch 98% giờ đồ án AI hay ngưỡng chuẩn 4 MCs) mà không mất thời gian tự giải mã đồ thị.</p>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ <!-- ========================================================================
+ TAB 4: CURRICULUM ARCHITECTURE & SELECTED WORK (Q1.1 - Q1.3)
+ ======================================================================== -->
+ <div id="pane-curriculum" class="tab-pane">
+
+ <!-- Kott Studio Selected Work Archetype Banner (/work) -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">04</span> / <span class="banner-title">Cơ cấu phân cấp đào tạo</span></div>
+ <div class="banner-sub">// Cấu trúc học thuật &bull; Q1.1 &ndash; Q1.3</div>
+ </div>
+
+ <!-- Q1.1: Undergraduate vs Postgraduate Distribution -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">04 / Cơ cấu đào tạo &bull; Q1.1 &bull; Phân tầng cấp bậc</div>
+ <h2 class="section-title">Tỷ trọng học phần giữa bậc Cử nhân (Level 1&ndash;4) và Sau đại học (Level 5&ndash;6)</h2>
+ <p class="section-desc">Toàn bộ 1,400 lượt học phần phân bổ cân bằng giữa bậc đại học (53.0%) và sau đại học (47.0%), tạo cơ cấu hình chóp ngược nhẹ tại các bậc chuyên sâu cao cấp.</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Cơ cấu bậc học: Đại học và Sau đại học</span>
+ </div>
+ <div id="chart-q1-donut" class="chart-container" style="min-height: 320px;"></div>
+ </div>
+
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Phân bố học phần theo cấp độ (Level 1 &ndash; 6)</span>
+ </div>
+ <div id="chart-q1-levels" class="chart-container" style="min-height: 320px;"></div>
+ </div>
+ </div>
+
+ <div class="table-container" style="margin-top: 18px;">
+ <table class="data-table">
+ <thead>
+ <tr>
+ <th>Cấp độ</th>
+ <th>Phân tầng đào tạo</th>
+ <th class="text-right">Số lượng môn</th>
+ <th class="text-right">Tỷ trọng (%)</th>
+ </tr>
+ </thead>
+ <tbody>
+ {{lvl_rows}}
+ <tr class="table-total-row">
+ <td><b>Toàn bộ</b></td>
+ <td><b>Khoa Khoa học Máy tính</b></td>
+ <td class="text-right font-mono font-bold">1,400</td>
+ <td class="text-right font-mono font-bold">100.0%</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- Q1.2: Modular Credit Breakdown -->
+ <section class="section-card reveal-card" style="--i: 1">
+ <div class="section-header">
+ <div class="section-eyebrow">04 / Cơ cấu đào tạo &bull; Q1.2 &bull; Trọng số tín chỉ</div>
+ <h2 class="section-title">Số tín chỉ trung bình (Modular Credits) và mức độ chuẩn hóa đào tạo</h2>
+ <p class="section-desc">Xác minh mức độ biến động tín chỉ giữa các cấp bậc môn học và kiểm chứng giả thuyết chuẩn hóa 4 Modular Credits (MCs).</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Phân bố số lượng tín chỉ Modular Credits (MCs)</span>
+ </div>
+ <div id="chart-q1-credits" class="chart-container" style="min-height: 320px;"></div>
+ <div class="chart-takeaway">
+ <strong>Kết luận Q1.2:</strong>
+ <span><strong>82.3% Đạt Chuẩn Tuyệt đối 4 MCs:</strong> Chương trình đào tạo CS tại NUS được thiết kế với tính mô-đun hóa cực kỳ cao. Chuẩn 4 MCs tương ứng với quy ước 10 giờ học mỗi tuần.</span>
+ </div>
+ </div>
+
+ <div>
+ <div class="table-container">
+ <table class="data-table">
+ <thead>
+ <tr>
+ <th>Định mức tín chỉ</th>
+ <th class="text-right">Số lượng môn</th>
+ <th class="text-right">Tỷ trọng (%)</th>
+ </tr>
+ </thead>
+ <tbody>
+ {{credit_rows}}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q1.3: Knowledge Domain Breakdown & Venues -->
+ <section class="section-card reveal-card" style="--i: 2">
+ <div class="section-header">
+ <div class="section-eyebrow">04 / Cơ cấu đào tạo &bull; Q1.3 &bull; Quy mô phân ngành &amp; địa điểm giảng dạy</div>
+ <h2 class="section-title">Cấu trúc nhánh kiến thức và mật độ giảng đường tại cơ sở Kent Ridge</h2>
+ <p class="section-desc">Phân bố môn học giữa Khoa Khoa học Máy tính (CS: 73.5%), Hệ thống Thông tin (IS: 19.9%), Khoa học Dữ liệu (DSA: 6.6%) cùng các địa điểm giảng dạy chính.</p>
+ </div>
+
+ <!-- Treemap Native SVG Card -->
+ <div class="chart-card" style="margin-top: 0; margin-bottom: 20px;">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 03A</span>
+ <span class="chart-name">Cơ cấu phân cấp ngành đào tạo và bậc học theo sơ đồ cây phân tầng</span>
+ </div>
+ <div class="chart-actions">
+ <span class="font-mono text-muted" style="font-size: 11px;">Level 1&ndash;4 (Cử nhân) &bull; Level 5&ndash;6 (Sau đại học)</span>
+ </div>
+ </div>
+ <div id="chart-q1-treemap" class="chart-container" style="min-height: 360px;"></div>
+ <div class="chart-takeaway">
+ <strong>Kết luận Treemap Q1.3:</strong>
+ <span>Khoa Khoa học Máy tính (CS) chiếm tỷ trọng áp đảo 70.4% (985 môn), trong đó bậc Cử nhân (Level 1&ndash;4: 584 môn) và Sau đại học (Level 5&ndash;6: 401 môn) đều có quy mô đào tạo vượt trội so với Hệ thống Thông tin (IS: 236 môn) và Khoa học Dữ liệu (DSA: 179 môn).</span>
+ </div>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Cơ cấu nhánh đào tạo (CS, IS, DSA)</span>
+ </div>
+ <div id="chart-q1-dept" class="chart-container" style="min-height: 340px;"></div>
+ </div>
+
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Các giảng đường có số ca giảng dạy hàng tuần cao nhất</span>
+ </div>
+ <div id="chart-q1-venues" class="chart-container" style="min-height: 340px;"></div>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ <!-- ========================================================================
+ TAB 5: MODULAR CAPABILITIES & WORKLOAD AUDIT (Q2.1 - Q2.3)
+ ======================================================================== -->
+ <div id="pane-workload" class="tab-pane">
+
+ <!-- Kott Studio Modular Capabilities Archetype Banner (/services) -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">05</span> / <span class="banner-title">Khối lượng và thời lượng học tập</span></div>
+ <div class="banner-sub">// Kiểm toán thời gian và phân bổ tự học &bull; Q2.1 &ndash; Q2.3</div>
+ </div>
+
+ <!-- Q2.1: Workload Components Breakdown -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <span class="corner-cross top-l">+</span><span class="corner-cross top-r">+</span>
+ <span class="corner-cross bot-l">+</span><span class="corner-cross bot-r">+</span>
+ <div class="section-header">
+ <div class="section-eyebrow">05 / Khối lượng học tập &bull; Q2.1 &bull; Cơ cấu giờ học hàng tuần</div>
+ <h2 class="section-title">Phân tích chi tiết các thành phần khối lượng học tập</h2>
+ <p class="section-desc">So sánh tỷ trọng giữa thời lượng Giảng bài lý thuyết (Lec), Thảo luận (Tut), Phòng Lab, Đồ án (Proj) và Tự học chuẩn bị bài (Prep).</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Thời lượng trung bình các thành phần (giờ/tuần)</span>
+ </div>
+ <div id="chart-q2-breakdown" class="chart-container" style="min-height: 340px;"></div>
+ <div class="chart-takeaway">
+ <strong>Luận giải Q2.1:</strong>
+ <span><strong>Tự học Là Yếu tố Quyết định Khối lượng:</strong> Tự học chiếm 4.88 giờ/tuần (47.4%), cao gấp hơn 2 lần thời gian nghe giảng bài (2.41 giờ/tuần). Giờ lên lớp chỉ là định hướng, làm chủ kiến thức đòi hỏi tự nghiên cứu độc lập.</span>
+ </div>
+ </div>
+
+ <div>
+ <div class="table-container">
+ <table class="data-table">
+ <thead>
+ <tr>
+ <th>Thành phần hoạt động</th>
+ <th class="text-right">Giờ trung bình / tuần</th>
+ <th class="text-right">Tỷ trọng (%)</th>
+ </tr>
+ </thead>
+ <tbody>
+ {{wl_rows}}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
+
+ <!-- Native SVG Tufte Distribution Boxplot Card -->
+ <div class="chart-card" style="margin-top: 20px;">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 01 / Q2.1</span>
+ <span class="chart-name">Phân phối mật độ khối lượng học tập (biểu đồ hộp Tufte)</span>
+ </div>
+ <div class="chart-actions" id="workload-field-controls">
+ <button class="chart-filter-btn active" data-field="prep_hours">Giờ tự học</button>
+ <button class="chart-filter-btn" data-field="total_workload">Tổng khối lượng</button>
+ <button class="chart-filter-btn" data-field="lec_hours">Giờ lý thuyết</button>
+ </div>
+ </div>
+ <div id="chart-q2-violin" class="chart-container" style="min-height: 380px;"></div>
+ <div id="workload-box-inspector" class="chart-inspector-card" style="display: none;"></div>
+ <div class="chart-takeaway">
+ <strong>Luận điểm phân phối (Q2.1):</strong>
+ <span id="workload-takeaway-text">Nhu cầu tự học trung vị tăng từ 3.0h/tuần (Bậc Đại học, Level 1&ndash;4) lên 4.0h/tuần (Bậc Sau đại học, Level 5&ndash;6). Khoảng biến thiên mở rộng đáng kể ở Level 4&ndash;5 với nhiều môn có khối lượng tự học chuyên sâu lên tới 7&ndash;8h/tuần.</span>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q2.2: OLS Regression Analysis -->
+ <section class="section-card reveal-card" style="--i: 1">
+ <span class="corner-cross top-l">+</span><span class="corner-cross top-r">+</span>
+ <span class="corner-cross bot-l">+</span><span class="corner-cross bot-r">+</span>
+ <div class="section-header">
+ <div class="section-eyebrow">05 / Khối lượng học tập &bull; Q2.2 &bull; Mối tương quan tự học</div>
+ <h2 class="section-title">Hồi quy tuyến tính OLS: Mối quan hệ giữa cấp độ môn học và giờ tự học</h2>
+ <p class="section-desc">Đánh giá thực nghiệm mô hình hồi quy bình phương tối thiểu OLS giữa cấp độ môn học (Level 1&ndash;6) và số giờ chuẩn bị bài.</p>
+ </div>
+
+ <div class="kpi-grid">
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Phương trình OLS</span></div>
+ <div class="kpi-num font-mono" style="font-size: 22px;">y = 0.29x + 2.06</div>
+ <div class="kpi-meta">Cứ tăng 1 level, giờ tự học tăng thêm +0.29 giờ/tuần.</div>
+ </div>
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Ý nghĩa thống kê</span></div>
+ <div class="kpi-num font-mono text-accent">p &lt; 0.001***</div>
+ <div class="kpi-meta">Hệ số góc có ý nghĩa thống kê vượt trội (Standard Error = 0.029).</div>
+ </div>
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Hệ số xác định</span></div>
+ <div class="kpi-num font-mono">R&sup2; = 0.069</div>
+ <div class="kpi-meta">Cấp độ giải thích 6.9% phương sai biến thiên của giờ tự học.</div>
+ </div>
+ </div>
+
+ <div class="chart-card">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 03</span>
+ <span class="chart-name">Đồ thị tán xạ thực nghiệm và đường hồi quy OLS</span>
+ </div>
+ <div class="chart-actions" id="ols-line-controls">
+ <button class="chart-filter-btn active" id="btn-ols-reg">Đường hồi quy OLS</button>
+ <button class="chart-filter-btn active" id="btn-ols-mean">+ Đường trung bình thực nghiệm</button>
+ <button class="chart-filter-btn" id="btn-ols-benchmark">+ Ngưỡng chuẩn 4.0h/tuần</button>
+ <button class="chart-filter-btn" id="btn-ols-outliers">+ Điểm dị biệt (|e| &ge; 2.5h)</button>
+ <span class="kpi-tag font-mono" style="font-size: 11px; padding: 2px 8px; border: 1px solid var(--color-border); background: var(--color-surface-soft);">y = 0.29x + 2.06 &bull; R&sup2; = 0.069 &bull; p &lt; 0.001***</span>
+ </div>
+ </div>
+ <div id="chart-q2-ols" class="chart-container" style="min-height: 420px;"></div>
+ <div id="ols-point-inspector" class="chart-inspector-card" style="display: none;"></div>
+ <div class="chart-takeaway" id="ols-chart-takeaway">
+ <strong>Kết luận Q2.2:</strong>
+ <span id="ols-takeaway-text">Mối tương quan thuận giữa cấp độ môn học và thời lượng tự học là có thật và có ý nghĩa thống kê bền vững (<i>p</i> &lt; 0.001). Cấp độ càng cao, sinh viên càng phải chủ động tự nghiên cứu độc lập ngoài giờ lên lớp.</span>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q2.3: AI vs Non-AI Workload Paradox -->
+ <section class="section-card reveal-card" style="--i: 2">
+ <span class="corner-cross top-l">+</span><span class="corner-cross top-r">+</span>
+ <span class="corner-cross bot-l">+</span><span class="corner-cross bot-r">+</span>
+ <div class="section-header">
+ <div class="section-eyebrow">05 / Khối lượng học tập &bull; Q2.3 &bull; Nghịch lý khối lượng AI</div>
+ <h2 class="section-title">So sánh khối lượng học tập giữa nhánh AI và môn CS tiêu chuẩn</h2>
+ <p class="section-desc">Kiểm chứng câu hỏi: Các môn Trí tuệ Nhân tạo có thực sự đòi hỏi tổng khối lượng và thời gian làm đồ án cao hơn mặt bằng chung hay không?</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">So sánh khối lượng: Môn CS tiêu chuẩn và môn trọng tâm AI/ML</span>
+ </div>
+ <div id="chart-q2-ai-comp" class="chart-container" style="min-height: 340px;"></div>
+ </div>
+
+ <div class="kpi-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag">Tổng khối lượng</span></div>
+ <div class="kpi-num font-mono">11.23 <span class="kpi-unit">h/tuần (AI)</span></div>
+ <div class="kpi-meta"><b>So với CS tiêu chuẩn:</b> 10.15 h/tuần (Chênh lệch: +1.08 giờ/tuần).</div>
+ </div>
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag">Thời lượng đồ án</span></div>
+ <div class="kpi-num font-mono text-accent">1.45 <span class="kpi-unit">h/tuần (AI)</span></div>
+ <div class="kpi-meta">Gấp gần 2 lần mức trung bình của môn CS tiêu chuẩn (0.73 h/tuần).</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ <!-- ========================================================================
+ TAB 6: SYSTEMS TOPOLOGY & PREREQUISITE NETWORK (Q3.1 - Q3.3)
+ ======================================================================== -->
+ <div id="pane-prereq" class="tab-pane">
+
+ <!-- Kott Studio Systems Topology Archetype Banner (/apps) -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">06</span> / <span class="banner-title">Mạng lưới tiên quyết đồ thị DAG</span></div>
+ <div class="banner-sub">// Đồ thị có hướng DAG &bull; Q3.1 &ndash; Q3.3</div>
+ </div>
+
+ <!-- Q3.1: Prerequisite Chain Depth -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">06 / Mạng lưới tiên quyết &bull; Q3.1 &bull; Độ sâu lộ trình</div>
+ <h2 class="section-title">Phân bố độ dài chuỗi xích tiên quyết </h2>
+ <p class="section-desc">Xác định một sinh viên trung bình phải vượt qua chuỗi xích tiên quyết dài bao nhiêu bậc để chạm tới các học phần chuyên sâu bậc 4000&ndash;5000.</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Phân bố số lượng học phần theo độ sâu chuỗi</span>
+ </div>
+ <div id="chart-q3-depth" class="chart-container" style="min-height: 320px;"></div>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Đặc trưng cấu trúc Q3.1</div>
+ <h3 class="narrative-title">Độ sâu chuỗi đạt tối đa 5 bậc tiên quyết</h3>
+ <p class="narrative-body">Để tiếp cận được các môn AI chuyên sâu đỉnh cao như <code>CS5242</code> Học sâu hay <code>CS4248</code> Xử lý ngôn ngữ tự nhiên, lộ trình bắt buộc phải đi qua chuỗi liên tục:</p>
+ <p class="narrative-body font-mono" style="background: var(--color-surface); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin: 6px 0;">
+ CS1010 &rarr; CS2040 &rarr; CS3244 &rarr; CS4248 / CS5242
+ </p>
+ <p class="narrative-body">Trung bình một môn học bậc 4000 đòi hỏi độ sâu chuỗi là 2.8 bậc, tạo áp lực tích lũy tín chỉ tuần tự rất chặt chẽ.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q3.2: Bottleneck Modules Ranking -->
+ <section class="section-card reveal-card" style="--i: 1">
+ <div class="section-header">
+ <div class="section-eyebrow">06 / Mạng lưới tiên quyết &bull; Q3.2 &bull; Môn học cửa ngõ </div>
+ <h2 class="section-title">Xếp hạng các học phần có bậc ra cao nhất</h2>
+ <p class="section-desc">Những môn học nền tảng cốt lõi trong đồ thị có hướng — nếu sinh viên không vượt qua sẽ làm nghẽn toàn bộ lộ trình học tập phía sau.</p>
+ </div>
+
+ <div class="table-container">
+ <table class="data-table">
+ <thead>
+ <tr>
+ <th>Mã học phần</th>
+ <th>Tên môn học</th>
+ <th>Phân loại kiến thức</th>
+ <th class="text-right">Số môn phụ thuộc (out-degree)</th>
+ </tr>
+ </thead>
+ <tbody>
+ {{bottleneck_rows}}
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- Q3.3: Inlined Interactive SVG Prerequisite Network DAG -->
+ <section class="section-card reveal-card" style="--i: 2">
+ <div class="section-header">
+ <div class="section-eyebrow">06 / Mạng lưới tiên quyết &bull; Q3.3 &bull; Tính liên ngành &amp; sơ đồ DAG tương tác</div>
+ <h2 class="section-title">Đồ thị có hướng lộ trình tiên quyết chuyên ngành Trí tuệ nhân tạo </h2>
+ <p class="section-desc">Xác minh tỷ lệ 34.8% môn ngoại khoa (Toán <code>MA</code>, Thống kê <code>ST</code>) đóng vai trò điều kiện tiên quyết bắt buộc cho chuỗi học phần AI.</p>
+ </div>
+
+ <div class="dag-workspace">
+ <div class="dag-toolbar">
+ <div class="dag-presets">
+ <span class="filter-label" style="line-height: 24px; margin-right: 4px;">Lộ trình gợi ý:</span>
+ <button class="dag-preset-btn active" data-preset="all">Tất cả nút</button>
+ <button class="dag-preset-btn" data-preset="deep_learning">Nhánh học sâu</button>
+ <button class="dag-preset-btn" data-preset="llm">Nhánh LLM &amp; NLP</button>
+ <button class="dag-preset-btn" data-preset="vision">Nhánh thị giác máy tính</button>
+ <button class="dag-preset-btn" data-preset="classic_ai">Nhánh Classic AI</button>
+ </div>
+ </div>
+
+ <div class="dag-canvas-container" id="dag-container" data-lenis-prevent>
+ <svg id="dag-svg" viewBox="0 0 1340 720">
+ <defs>
+ <marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+ <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--color-hairline-strong)"></path>
+ </marker>
+ <marker id="arrow-in" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+ <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--color-chart-blue)"></path>
+ </marker>
+ <marker id="arrow-out" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+ <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--color-chart-purple)"></path>
+ </marker>
+ </defs>
+ <g id="dag-viewport">
+ <g id="dag-stages-layer"></g>
+ <g id="dag-edges-layer"></g>
+ <g id="dag-nodes-layer"></g>
+ </g>
+ </svg>
+ </div>
+
+ <div class="chart-takeaway">
+ <strong>Hướng dẫn tương tác mạng lưới:</strong>
+ <span>Nhấp vào bất kỳ môn học nào trong đồ thị để làm sáng đường dây tiên quyết (màu xanh dương) và các môn mở khóa tiếp theo (màu tím). Các môn không liên quan sẽ tự động chìm xuống để dễ quan sát. Nhấp lại vào môn đó hoặc nhấp ra ngoài để xem lại toàn bộ mạng lưới.</span>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ <!-- ========================================================================
+ TAB 7: STATISTICAL INFERENCE & EMPIRICAL JOURNAL (Q4.1 - Q4.3)
+ ======================================================================== -->
+ <div id="pane-stats" class="tab-pane">
+
+ <!-- Kott Studio Journal Editorial Archetype Banner (/journal) -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">07</span> / <span class="banner-title">Thống kê suy diễn và kiểm định</span></div>
+ <div class="banner-sub">// Kiểm định giả thuyết thực nghiệm &bull; Q4.1 &ndash; Q4.3</div>
+ </div>
+
+ <!-- Q4.1: Welch's t-test -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">07 / Thống kê suy diễn &bull; Q4.1 &bull; Kiểm định t-test độc lập</div>
+ <h2 class="section-title">Kiểm định sự khác biệt về giờ tự học giữa bậc Cử nhân và Sau đại học qua kiểm định Welch</h2>
+ <p class="section-desc">Kiểm tra giả thuyết <i>H</i><sub>0</sub>: Không có sự khác biệt có ý nghĩa thống kê về số giờ tự học chuẩn bị bài giữa bậc Cử nhân và Sau đại học tại mức ý nghĩa &alpha; = 0.05.</p>
+ </div>
+
+ <div class="kpi-grid">
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Giá trị thống kê t</span></div>
+ <div class="kpi-num font-mono text-accent">t = -10.44</div>
+ <div class="kpi-meta">Kiểm định hai phía độc lập với phương sai không đồng nhất (Welch).</div>
+ </div>
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">p-value thực nghiệm</span></div>
+ <div class="kpi-num font-mono text-accent">p &lt; 0.001***</div>
+ <div class="kpi-meta"><i>p</i> = 1.84 &times; 10<sup>-24</sup> &rarr; Bác bỏ hoàn toàn giả thuyết <i>H</i><sub>0</sub>.</div>
+ </div>
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Kích thước hiệu ứng</span></div>
+ <div class="kpi-num font-mono">d = 0.58</div>
+ <div class="kpi-meta">Cohen's d ở mức trung bình-lớn (chênh lệch +0.83 giờ tự học/tuần).</div>
+ </div>
+ </div>
+
+ <div class="workbench-split" style="margin-top: 18px;">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">So sánh thời lượng tự học trung bình (kèm sai số chuẩn 95% SE)</span>
+ </div>
+ <div id="chart-q4-ttest" class="chart-container" style="min-height: 300px;"></div>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Kết luận kiểm định Q4.1</div>
+ <h3 class="narrative-title">Học viên Sau đại học dành nhiều giờ tự học hơn đáng kể</h3>
+ <p class="narrative-body">Sinh viên Sau đại học (Level 5 &ndash; 6, N=562) có thời lượng tự học chuẩn bị bài trung bình đạt 3.70 giờ/tuần, cao hơn có ý nghĩa thống kê (<i>p</i> = 1.84 &times; 10<sup>-24</sup>) so với mức 2.87 giờ/tuần của sinh viên bậc Cử nhân (Level 1 &ndash; 4, N=838). Mức gia tăng +0.83 giờ/tuần (+28.9%) khẳng định bước nhảy vọt về tính chủ động nghiên cứu độc lập ở bậc sau đại học.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q4.2: 95% Confidence Interval Estimation -->
+ <section class="section-card reveal-card" style="--i: 1">
+ <div class="section-header">
+ <div class="section-eyebrow">07 / Thống kê suy diễn &bull; Q4.2 &bull; Ước lượng khoảng tin cậy 95%</div>
+ <h2 class="section-title">Khoảng tin cậy 95% cho khối lượng giờ học mỗi tuần</h2>
+ <p class="section-desc">Ước lượng tham số kỳ vọng trung bình của toàn thể quần thể học phần CS tại NUS dựa trên phân phối t-Student mẫu.</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Ước lượng khoảng tin cậy 95% CI </span>
+ </div>
+ <div id="chart-q4-ci" class="chart-container" style="min-height: 300px;"></div>
+ </div>
+
+ <div class="kpi-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Tổng khối lượng 95% CI</span></div>
+ <div class="kpi-num font-mono" style="font-size: 26px;">[11.22, 11.95] <span class="kpi-unit">h/tuần</span></div>
+ <div class="kpi-meta"><b>Trung bình mẫu:</b> 11.59 h/tuần (SE = 0.185, N=1,400).</div>
+ </div>
+ <div class="kpi-box">
+ <div class="kpi-header"><span class="kpi-tag font-mono">Giờ tự học 95% CI</span></div>
+ <div class="kpi-num font-mono text-accent" style="font-size: 26px;">[3.12, 3.28] <span class="kpi-unit">h/tuần</span></div>
+ <div class="kpi-meta"><b>Trung bình mẫu:</b> 3.20 h/tuần (SE = 0.040, N=1,400).</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q4.3: Hypothesis of Self-Study Transition & Correlation Matrix -->
+ <section class="section-card reveal-card" style="--i: 2">
+ <div class="section-header">
+ <div class="section-eyebrow">07 / Thống kê suy diễn &bull; Q4.3 &bull; Kiểm tra giả thuyết đồng nhất &amp; ma trận tương quan</div>
+ <h2 class="section-title">Sự chuyển dịch tỷ lệ tự học và ma trận tương quan toàn diện</h2>
+ <p class="section-desc">Kiểm chứng câu hỏi: Tỷ lệ tự học có thực sự gia tăng vượt bậc khi chuyển tiếp từ các môn cơ sở sang các môn chuyên ngành nâng cao?</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Chuyển dịch tỷ lệ tự học / Tổng khối lượng qua cấp độ (%)</span>
+ </div>
+ <div id="chart-q4-trans" class="chart-container" style="min-height: 320px;"></div>
+ </div>
+
+ <div>
+ <div class="table-container">
+ <table class="data-table">
+ <thead>
+ <tr>
+ <th>Cấp bậc</th>
+ <th>Phân tầng</th>
+ <th class="text-right">Tổng giờ</th>
+ <th class="text-right">Giờ tự học</th>
+ <th class="text-right">Tỷ lệ tự học</th>
+ </tr>
+ </thead>
+ <tbody>
+ {{trans_rows}}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
+
+ <!-- Native SVG Correlation Heatmap Card -->
+ <div class="chart-card" style="margin-top: 20px;">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 04 / Q4.3</span>
+ <span class="chart-name">Ma trận tương quan học thuật Pearson </span>
+ </div>
+ </div>
+ <div id="chart-q4-heatmap" class="chart-container" style="min-height: 420px;"></div>
+ <div id="heatmap-cell-inspector" class="chart-inspector-card" style="display: none;"></div>
+ <div class="chart-takeaway">
+ <strong>Tương quan Học thuật (Q4.3):</strong>
+ <span>Số tín chỉ (MCs) tương quan thuận mạnh nhất với Giờ đồ án <code>r = +0.59</code> và Giờ thảo luận <code>r = +0.35</code>. Giờ đồ án có sự đánh đổi nghịch chiều rõ nét với Giờ tự học độc lập <code>r = -0.55</code>.</span>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ <!-- ========================================================================
+ TAB 8: MACHINE LEARNING & INTERACTIVE LAB (Q5.1 - Q5.3)
+ ======================================================================== -->
+ <div id="pane-ml" class="tab-pane">
+
+ <!-- Kott Studio Interactive Lab Archetype Banner -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">08</span> / <span class="banner-title">Phòng thí nghiệm học máy tương tác</span></div>
+ <div class="banner-sub">// Không gian vector đa chiều &bull; Q5.1 &ndash; Q5.3</div>
+ </div>
+
+ <!-- Q5.1: TF-IDF Core Keywords & Wordcloud -->
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">08 / Phòng thí nghiệm học máy &bull; Q5.1 &bull; Từ khóa cốt lõi </div>
+ <h2 class="section-title">Khai phá thuật ngữ kỹ thuật cốt lõi trong đề cương học phần AI </h2>
+ <p class="section-desc">Phân tích tần suất và trọng số nghịch đảo văn bản TF-IDF từ mô tả học thuật của tất cả các môn AI.</p>
+ </div>
+
+ <div class="workbench-split">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">12 thuật ngữ kỹ thuật cốt lõi hàng đầu (trọng số TF-IDF)</span>
+ </div>
+ <div id="chart-q5-tfidf" class="chart-container" style="min-height: 340px;"></div>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Trọng số TF-IDF hàng đầu</div>
+ <h3 class="narrative-title">Học máy, dữ liệu và mô hình xác suất chiếm lĩnh</h3>
+ <p class="narrative-body">Sau khi loại bỏ các dừng từ học thuật phổ biến, các khái niệm kỹ thuật cốt lõi hiện lên rõ nét với trọng số TF-IDF vượt trội:</p>
+ <div class="keywords-wrap">
+ {{keywords_chips}}
+ </div>
+ </div>
+ </div>
+
+ <!-- Native SVG AI Word Cloud Card -->
+ <div class="chart-card" style="margin-top: 20px;">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 07A / Q5.1</span>
+ <span class="chart-name">Đám mây từ vựng chuyên ngành AI </span>
+ </div>
+ <div class="dag-presets" id="wordcloud-filters">
+ <button class="chart-filter-btn active" data-cat="all">Tất cả (70)</button>
+ <button class="chart-filter-btn" data-cat="core_ai"><span style="color:var(--color-chart-red);">●</span> Học sâu &amp; AI (8)</button>
+ <button class="chart-filter-btn" data-cat="foundations"><span style="color:var(--color-chart-blue);">●</span> Dữ liệu &amp; Nền tảng (13)</button>
+ <button class="chart-filter-btn" data-cat="applied"><span style="color:var(--color-muted);">●</span> Ứng dụng &amp; Chuyên ngành (49)</button>
+ </div>
+ </div>
+ <div id="chart-q5-wordcloud" class="chart-container" style="min-height: 520px;"></div>
+ <div class="chart-takeaway">
+ <strong>Phân tích từ khóa (Q5.1):</strong>
+ <span>Hai từ khóa trọng tâm áp đảo tạo nên trọng lực ngữ nghĩa cốt lõi gồm <code>data</code> và <code>model</code>, được bổ trợ bởi các khái niệm nền tảng như <code>machine learning</code>, <code>learning</code> và <code>algorithm</code>, phản ánh rõ nét xu thế chuyển dịch của chương trình đào tạo tập trung vào khoa học dữ liệu và mô hình AI.</span>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q5.2: Unsupervised K-Means Clustering & Elbow Method -->
+ <section class="section-card reveal-card" style="--i: 1">
+ <div class="section-header">
+ <div class="section-eyebrow">08 / Phòng thí nghiệm học máy &bull; Q5.2 &bull; Gom cụm không giám sát K-Means</div>
+ <h2 class="section-title">Phân cụm chủ đề học thuật bằng thuật toán K-Means và điểm uốn Elbow</h2>
+ <p class="section-desc">Gom nhóm 348 môn học duy nhất dựa trên vector đặc trưng TF-IDF được giảm chiều, xác định số cụm tối ưu <i>K</i> = 3.</p>
+ </div>
+
+ <!-- 3 Clusters Cards -->
+ <div class="clusters-grid">
+ {{cluster_cards}}
+ </div>
+
+ <div class="workbench-split" style="margin-top: 16px;">
+ <div class="chart-card" style="margin-top: 0;">
+ <div class="chart-toolbar">
+ <span class="chart-name">Đường quán tính theo điểm uốn Elbow (K = 2..8)</span>
+ </div>
+ <div id="chart-q5-elbow" class="chart-container" style="min-height: 320px;"></div>
+ <div class="chart-takeaway">
+ <strong>Điểm uốn Elbow K = 3 (Q5.2):</strong>
+ <span>Đường quán tính giảm 46.2% khi chuyển từ <i>K</i> = 2 sang <i>K</i> = 3, sau đó giảm chậm dần. Điều này chứng minh cấu trúc 3 cụm là tối ưu và phân định rõ ràng giữa AI, Kỹ thuật Hệ thống và Chuỗi Thực tập FOS.</span>
+ </div>
+ </div>
+
+ <div class="narrative-card">
+ <div class="narrative-badge">Bản chất 3 cụm chủ đề</div>
+ <h3 class="narrative-title">Cơ cấu học thuật hoàn chỉnh của khoa CS</h3>
+ <p class="narrative-body"><strong>Cụm 1 (Trí tuệ Nhân tạo &amp; Dữ liệu):</strong> Tập hợp các môn học máy, thị giác máy tính, xử lý ngôn ngữ tự nhiên, khai phá dữ liệu lớn.</p>
+ <p class="narrative-body" style="margin-top: 8px;"><strong>Cụm 2 (Kỹ thuật Phần mềm &amp; Hệ thống):</strong> Các môn kiến trúc máy tính, hệ điều hành, mạng máy tính, an toàn thông tin và phát triển phần mềm doanh nghiệp.</p>
+ <p class="narrative-body" style="margin-top: 8px;"><strong>Cụm 3 (Chuỗi Dự án &amp; Thực tập FOS):</strong> Tập hợp 10 học phần thực tập chuyên môn và dự án doanh nghiệp của Khoa Khoa học (DSA2310 đến DSA4313) có mô tả và cấu trúc học thuật thống nhất, tạo thành một cụm cô lập riêng biệt ở góc đông nam không gian PCA.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Q5.3: PCA 2D Dimensionality Reduction & Separation -->
+ <section class="section-card reveal-card" style="--i: 2">
+ <div class="section-header">
+ <div class="section-eyebrow">08 / Phòng thí nghiệm học máy &bull; Q5.3 &bull; Không gian chiếu 2D PCA &amp; mức độ phân tách</div>
+ <h2 class="section-title">Không gian chiếu 2D PCA và mức độ tách biệt giữa AI ứng dụng và lý thuyết</h2>
+ <p class="section-desc">Phân tích thành phần chính (PCA) chiếu không gian vector TF-IDF của 348 môn học duy nhất lên 2 trục biến thiên trực giao PC1 và PC2, làm sáng tỏ mức độ phân tách giữa AI ứng dụng và các môn hệ thống.</p>
+ </div>
+
+ <!-- Direct Inlined Interactive PCA Scatter Plot -->
+ <div class="chart-card">
+ <div class="chart-toolbar">
+ <div class="chart-title-group">
+ <span class="chart-badge font-mono">Biểu đồ 08B</span>
+ <span class="chart-name">Không gian phân cụm 2D PCA (K-Means K=3)</span>
+ </div>
+ </div>
+
+ <!-- Interactive Cluster Filter Bar -->
+ <div class="pca-toolbar-controls">
+ <div class="pca-filter-group" id="pca-filter-buttons">
+ <span class="pca-filter-label">Bộ lọc cụm:</span>
+ <button class="pca-btn active" data-filter="all">Tất cả (348 môn)</button>
+ <button class="pca-btn" data-filter="0"><span class="pca-btn-dot" style="background:var(--color-chart-red);"></span> Cụm 1: AI &amp; Dữ liệu (130)</button>
+ <button class="pca-btn" data-filter="1"><span class="pca-btn-dot" style="background:var(--color-chart-blue);"></span> Cụm 2: KTPM &amp; Hệ thống (208)</button>
+ <button class="pca-btn" data-filter="2"><span class="pca-btn-dot" style="background:var(--color-chart-emerald);"></span> Cụm 3: Chuỗi thực tập FOS (10)</button>
+ <button class="pca-btn" data-filter="ai">⭐ Chỉ học phần AI cốt lõi (40)</button>
+ </div>
+ <div class="pca-hint">💡 Bấm nút để cô lập &bull; Rê hoặc nhấp điểm để ghim</div>
+ </div>
+
+ <!-- Chart SVG Container -->
+ <div id="chart-q5-pca" class="chart-container chart-container-tall" data-lenis-prevent></div>
+
+ <!-- Interactive Module Inspector -->
+ <div id="pca-inspector" class="pca-inspector-card">
+ <div class="pca-insp-left">
+ <span class="pca-insp-badge font-mono" id="pca-insp-code">CHƯA CHỌN MÔN</span>
+ <div class="pca-insp-details">
+ <div class="pca-insp-title" id="pca-insp-title">Rê chuột hoặc nhấp vào bất kỳ điểm dữ liệu/tâm cụm nào để xem chi tiết học phần</div>
+ <div class="pca-insp-meta" id="pca-insp-meta">
+ <span>Cụm: <b id="pca-insp-cluster">&mdash;</b></span>
+ <span>&bull; Level: <b id="pca-insp-level">&mdash;</b></span>
+ <span>&bull; Tọa độ PCA: <b class="font-mono" id="pca-insp-coords">&mdash;</b></span>
+ <span id="pca-insp-ai-tag"></span>
+ </div>
+ </div>
+ </div>
+ <button class="pca-insp-action font-mono" id="pca-insp-jump" style="display: none;" onclick="jumpToExplorerModule()">Tra cứu trong danh mục môn học &rarr;</button>
+ </div>
+
+ <div class="chart-takeaway">
+ <strong>Kết luận Không gian PCA (Q5.3):</strong>
+ <span>Trong không gian biểu diễn đặc trưng PCA, các môn học AI ứng dụng (Thị giác máy tính, Xử lý ngôn ngữ) phân bố cô đọng trong Cụm 1, tách biệt rõ nét với nhánh Kỹ thuật Phần mềm &amp; Hệ thống (Cụm 2) và nhóm Thực tập Doanh nghiệp (Cụm 3). Phân cụm không giám sát phản ánh chính xác cấu trúc thực tế của chương trình đào tạo.</span>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ <!-- ========================================================================
+ TAB 9: REPOSITORY DIRECTORY (1,400 MODULES CATALOG)
+ ======================================================================== -->
+ <div id="pane-explorer" class="tab-pane">
+
+ <!-- Kott Studio Repository Directory Archetype Banner (/contact / directory) -->
+ <div class="archetype-banner font-mono">
+ <div><span class="banner-num">09</span> / <span class="banner-title">Danh mục toàn bộ học phần</span></div>
+ <div class="banner-sub">// Tra cứu chi tiết &bull; 1.400 lượt môn học</div>
+ </div>
+
+ <section class="section-card reveal-card" style="--i: 0">
+ <div class="section-header">
+ <div class="section-eyebrow">09 / Tra cứu dữ liệu &bull; Danh mục học phần toàn diện</div>
+ <h2 class="section-title">Danh mục đầy đủ 1.400 lượt học phần (2022 &ndash; 2027)</h2>
+ <p class="section-desc">Tra cứu tức thì theo mã môn học, tên môn, cấp độ (Level 1&ndash;6), phân tầng đại học/sau đại học và trọng tâm AI Core với phân trang và sắp xếp đa cột.</p>
+ </div>
+
+ <!-- Filter Controls Bar -->
+ <div class="explorer-filter-bar">
+ <div class="filter-group">
+ <label for="explorer-search" class="filter-label">Tìm kiếm:</label>
+ <input type="text" id="explorer-search" class="input-text" placeholder="Nhập mã môn hoặc tên (vd: CS3244, AI, Machine Learning)...">
+ </div>
+
+ <div class="filter-group">
+ <label for="filter-level" class="filter-label">Cấp độ:</label>
+ <select id="filter-level" class="select-control">
+ <option value="all">Tất cả cấp độ (Level 1 - 6)</option>
+ <option value="1">Level 1</option>
+ <option value="2">Level 2</option>
+ <option value="3">Level 3</option>
+ <option value="4">Level 4</option>
+ <option value="5">Level 5</option>
+ <option value="6">Level 6</option>
+ </select>
+ </div>
+
+ <div class="filter-group">
+ <label for="filter-tier" class="filter-label">Bậc học:</label>
+ <select id="filter-tier" class="select-control">
+ <option value="all">Tất cả bậc học</option>
+ <option value="Đại học">Bậc Đại học (Level 1 - 4)</option>
+ <option value="Sau Đại học">Bậc Sau đại học (Level 5 - 6)</option>
+ </select>
+ </div>
+
+ <div class="filter-group">
+ <label for="filter-ai" class="filter-label">Trọng tâm:</label>
+ <select id="filter-ai" class="select-control">
+ <option value="all">Tất cả nhóm môn</option>
+ <option value="true">Chuyên ngành AI Core</option>
+ <option value="false">CS tiêu chuẩn</option>
+ </select>
+ </div>
+
+ <button id="btn-reset-filters" class="btn-action" style="margin-left: auto;">
+ <span>Đặt lại bộ lọc</span> &#8635;
+ </button>
+ </div>
+
+ <!-- Modules Table -->
+ <div class="table-container" data-lenis-prevent style="margin-top: 14px;">
+ <table class="data-table" id="modules-table">
+ <thead>
+ <tr>
+ <th class="sortable" data-sort="moduleCode">Mã môn <span id="sort-moduleCode">&bull;</span></th>
+ <th class="sortable" data-sort="title">Tên môn học <span id="sort-title">&bull;</span></th>
+ <th class="sortable" data-sort="academicYear">Niên khóa <span id="sort-academicYear">&bull;</span></th>
+ <th class="sortable" data-sort="level">Cấp độ <span id="sort-level">&bull;</span></th>
+ <th class="sortable" data-sort="study_tier">Bậc học <span id="sort-study_tier">&bull;</span></th>
+ <th class="sortable text-right" data-sort="moduleCredit">Tín chỉ <span id="sort-moduleCredit">&bull;</span></th>
+ <th class="sortable text-right" data-sort="total_workload">Tổng giờ <span id="sort-total_workload">&bull;</span></th>
+ <th class="sortable text-right" data-sort="prep_hours">Tự học <span id="sort-prep_hours">&bull;</span></th>
+ <th class="sortable" data-sort="is_ai_core">Phân loại AI <span id="sort-is_ai_core">&bull;</span></th>
+ <th class="sortable text-right" data-sort="prereq_count">Môn tiên quyết <span id="sort-prereq_count">&bull;</span></th>
+ </tr>
+ </thead>
+ <tbody id="modules-tbody">
+ <!-- Dynamically rendered via JavaScript -->
+ </tbody>
+ </table>
+ </div>
+
+ <!-- Pagination Controls Bar -->
+ <div class="pagination-bar">
+ <div id="pagination-info" class="pagination-info">
+ Đang tải dữ liệu...
+ </div>
+ <div class="pagination-controls">
+ <button id="btn-prev-page" class="btn-page">&larr; Trang trước</button>
+ <span id="page-num-display" class="font-mono font-bold" style="padding: 0 10px; font-size: 13px;">1 / 1</span>
+ <button id="btn-next-page" class="btn-page">Trang sau &rarr;</button>
+ </div>
+ </div>
+ </section>
+
+ </div>
+
+ </main>
+
+ <!-- Ft1 Academic Colophon Archetype Footer -->
+ <footer class="site-footer">
+ <div class="footer-inner">
+ <div class="footer-top">
+ <div class="footer-colophon">
+ <strong>NUS CS &amp; AI Curriculum Analytics Platform (2022 &ndash; 2027)</strong><br>
+ Báo cáo phân tích định lượng chương trình đào tạo Khoa học Máy tính và Trí tuệ Nhân tạo tại Đại học Quốc gia Singapore.
+ </div>
+ <div class="footer-meta font-mono">
+ <span>Bùi Minh Anh - B25DCTN003</span>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <div>Học viện Công nghệ Bưu chính Viễn thông (PTIT) &bull; Khoa Trí tuệ nhân tạo</div>
+ <div class="font-mono">
+ <span>Personal project for academic and educational purposes only.</span>
+ <span style="opacity: 0.65; margin-left: 8px;">&bull; UI inspired by <a href="https://kott.studio" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">kott.studio</a></span>
+ </div>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Embedded Precomputed Dataset for Zero-Latency Client Interaction -->
+ <script id="embedded-data" type="application/json">
+{{web_data_json}}
+</script>
+
+ <script src="charts.js"></script>
+ <script src="animation.js"></script>
+</body>
+</html>
