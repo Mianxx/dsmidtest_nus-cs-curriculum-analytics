@@ -12,21 +12,19 @@
 Dự án trang bị trình điều phối trung tâm [run.py](file:///c:/Users/bin31/PycharmProjects/dsmidtest_nus-cs-curriculum-analytics/run.py) tự động kiểm tra và cài đặt các thư viện cần thiết trước khi khởi chạy:
 
 ```bash
-# 1. Kích hoạt môi trường ảo Python
-.venv\Scripts\activate       # Trên Windows PowerShell
-# source .venv/bin/activate  # Trên macOS/Linux
-
-# 2. Cài đặt các gói thư viện phụ thuộc
+# Cài đặt các gói thư viện phụ thuộc
 pip install -r requirements.txt
 
-# 3. Thực thi toàn bộ đường ống xử lý 3 giai đoạn chuẩn
+# Thực thi toàn bộ đường ống xử lý 3 giai đoạn chuẩn
 python run.py
 
-# 4. Chạy nhanh khi đã có dữ liệu sạch (Bỏ qua bước thu thập lại từ API)
+# Chạy nhanh khi đã có dữ liệu sạch (Bỏ qua bước thu thập lại từ API)
 python run.py --skip-data
 
-# 5. Khởi chạy máy chủ web cục bộ xem trang web docs/
+# Khởi chạy máy chủ web cục bộ xem trang web docs/
 python run.py --serve
+
+# Có thể trực tiếp mở index.html sau khi chạy code.
 ```
 
 ## Thông tin dự án
