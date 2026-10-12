@@ -1,0 +1,11 @@
+# Virtual environment
+.venv/
+
+# IDE files
+.idea/
+
+# Large raw & intermediate data files (đã có bản web_data.json trong docs/data)
+data/
+
+# final=))
+nopbai/
